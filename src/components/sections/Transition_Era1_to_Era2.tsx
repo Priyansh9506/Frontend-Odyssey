@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Transition_Era1_to_Era2() {
+const Transition_Era1_to_Era2 = () => {
   const containerRef = useRef<HTMLElement>(null);
   const yearRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef({ value: 1969 });
@@ -128,3 +128,6 @@ export default function Transition_Era1_to_Era2() {
     </section>
   );
 }
+
+
+export default Transition_Era1_to_Era2;

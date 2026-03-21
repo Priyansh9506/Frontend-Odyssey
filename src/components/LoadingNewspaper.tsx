@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import gsap from "gsap";
 
-export default function LoadingNewspaper() {
+const LoadingNewspaper = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const paperRef = useRef<HTMLDivElement>(null);
   const percentRef = useRef<HTMLDivElement>(null);
@@ -82,7 +82,7 @@ export default function LoadingNewspaper() {
       {/* Percentage counter */}
       <div
         ref={percentRef}
-        className="absolute inset-0 flex items-center justify-center font-mono font-black text-white/[0.04] select-none"
+        className="absolute inset-0 flex items-center justify-center font-mono font-bold text-white/[0.04] select-none"
         style={{ fontSize: "clamp(8rem, 25vw, 28rem)" }}
       >
         0%
@@ -91,7 +91,7 @@ export default function LoadingNewspaper() {
       {/* Newspaper card */}
       <div
         ref={paperRef}
-        className="w-[92vw] md:w-[68vw] max-w-5xl aspect-[3/4] md:aspect-[4/3] bg-[#f4f1ea] flex flex-col items-center justify-center p-10 md:p-16 border-[6px] border-[#1a1a1a]"
+        className="w-[92vw] md:w-[68vw] max-w-5xl aspect-[3/4] md:aspect-[4/3] bg-[rgb(205, 198, 190)] flex flex-col items-center justify-center p-10 md:p-16 border-[6px] border-[#1a1a1a]"
         style={{
           boxShadow: "0 0 120px rgba(255,255,255,0.06), 0 40px 80px rgba(0,0,0,0.5)",
           transformStyle: "preserve-3d",
@@ -103,7 +103,7 @@ export default function LoadingNewspaper() {
         </div>
 
         <h1
-          className="font-serif font-black tracking-tighter uppercase text-center text-[#1a1a1a] leading-[0.85] w-full"
+          className="font-serif font-bold tracking-tighter uppercase text-center text-[#1a1a1a] leading-[0.85] w-full"
           style={{ fontSize: "clamp(2.5rem, 8vw, 7rem)" }}
         >
           The Hypertext Herald
@@ -127,3 +127,6 @@ export default function LoadingNewspaper() {
     </div>
   );
 }
+
+
+export default LoadingNewspaper;

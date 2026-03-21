@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-export default function Magnetic({ children }: { children: React.ReactElement }) {
+const Magnetic = ({ children }: { children: React.ReactElement }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,3 +42,6 @@ export default function Magnetic({ children }: { children: React.ReactElement })
 
   return <div ref={ref} className="inline-block" data-cursor="hover">{children}</div>;
 }
+
+
+export default Magnetic;

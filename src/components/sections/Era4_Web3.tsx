@@ -57,7 +57,7 @@ function Stars() {
   );
 }
 
-export default function Era4_Web3() {
+const Era4_Web3 = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -154,3 +154,6 @@ export default function Era4_Web3() {
     </section>
   );
 }
+
+
+export default Era4_Web3;

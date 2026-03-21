@@ -7,11 +7,7 @@ import { useLayoutEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SmoothScrolling({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const SmoothScrolling = ({ children }: { children: React.ReactNode }) => {
   // Sync GSAP ScrollTrigger with Lenis
   useLayoutEffect(() => {
     ScrollTrigger.refresh();
@@ -23,3 +19,6 @@ export default function SmoothScrolling({
     </ReactLenis>
   );
 }
+
+
+export default SmoothScrolling;

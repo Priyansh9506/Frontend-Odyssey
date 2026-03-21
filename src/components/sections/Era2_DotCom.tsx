@@ -7,7 +7,7 @@ import Magnetic from "@/components/Magnetic";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Era2_DotCom() {
+const Era2_DotCom = () => {
   const containerRef = useRef<HTMLElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
@@ -111,3 +111,6 @@ export default function Era2_DotCom() {
     </section>
   );
 }
+
+
+export default Era2_DotCom;

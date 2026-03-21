@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
  * Phase 2 — POP-UP: The paper rises into view at 85% scale, 15° tilt, rounded corners, big shadow
  * Phase 3 — SCROLL UNFURL: As the user scrolls, the paper zooms to 100%, flattens, fills viewport
  */
-export default function PageUnfurl({ children }: { children: React.ReactNode }) {
+const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   const outerRef = useRef<HTMLDivElement>(null);
   const paperRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLDivElement>(null);
@@ -159,3 +159,6 @@ export default function PageUnfurl({ children }: { children: React.ReactNode }) 
     </div>
   );
 }
+
+
+export default PageUnfurl;
