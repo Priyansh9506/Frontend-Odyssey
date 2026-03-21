@@ -33,6 +33,12 @@
 - **Images:** By default, exclude heavy CSS color-burn mix-blends or sepia masks unless specifically asked. Use clean raw colors with minimal transparent scanline background arrays over images.
 
 ## Project Structure
-- `src/components/PageUnfurl.tsx`: Wraps layout execution for 3-phase immersive 3D paper entry.
+- `src/components/PageUnfurl.tsx`: Wraps layout execution for 3-phase immersive 3D paper entry. (Note: fixed full-screen backgrounds MUST sit outside perspective containers to avoid width overrides and warping).
 - `src/components/Tilt3D.tsx`: Interactive premium parallax hover component with dynamic glare tracking.
+- `src/components/CopyReveal.tsx`: Handles cinematic staggering block reveals for era transitions (e.g. 1989 The Revolution).
 - `src/components/sections/Era1_Arpanet.tsx`: Foundational content architecture. All future eras should match its structural cadence.
+- `src/components/sections/RetroWeb.tsx`: Dedicated break from newspaper theme; fully authentic Web 1.0 experience leveraging native local custom cursors (`/cursor/cursor.png`) instead of GSAP canvas dots.
+
+## Architecture & Design Logs
+- **Custom Cursor Overhaul:** To prevent conflicting premium animations over retro elements, the global `CustomCursor.tsx` was completely removed. Cursor logic should now exclusively rely on CSS inheritance. For `RetroWeb.tsx`, the `.retro-cursor` class forces local pixelated PNG files on every child element natively.
+- **ScrollTrigger Animation Scoping:** Removed strict `window.innerWidth` limits on `Era1_Arpanet` content loading animations, guaranteeing the `PageUnfurl` sequence unrolls and elegantly staggers all titles, paragraphs, and images securely on all devices.
