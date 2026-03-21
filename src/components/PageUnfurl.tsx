@@ -17,12 +17,20 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   const outerRef = useRef<HTMLDivElement>(null);
   const paperRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLDivElement>(null);
-  const counterObj = useRef({ val: 0 });
-  const counterTextRef = useRef<HTMLSpanElement>(null);
   const [phase, setPhase] = useState<"loading" | "popup" | "ready">("loading");
 
-  // ── Phase 1: Loading counter ────────────────────────────
+  const [counter, setCounter] = useState(0);
+
+  // ── Phase 1: Setup initial state & loading counter ─────────
   useEffect(() => {
+    if (window.innerWidth < 1024) {
+      if (loaderRef.current) loaderRef.current.style.display = "none";
+      const darkBg = document.querySelector('.unfurl-dark-bg') as HTMLElement;
+      if (darkBg) darkBg.style.display = "none";
+      setPhase("ready");
+      return;
+    }
+
     document.body.style.overflow = "hidden";
 
     // Paper starts hidden, pushed down and tilted
@@ -35,18 +43,38 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       boxShadow: "0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04)",
     });
 
-    // Count 0 → 100
-    gsap.to(counterObj.current, {
-      val: 100,
-      duration: 1.8,
-      ease: "power2.inOut",
-      onUpdate: () => {
-        if (counterTextRef.current) {
-          counterTextRef.current.textContent = Math.round(counterObj.current.val).toString();
-        }
-      },
+    const tl = gsap.timeline({
       onComplete: () => setPhase("popup"),
     });
+
+    // 0 to 100% counter animation
+    tl.to(
+      { val: 0 },
+      {
+        val: 100,
+        duration: 2.5,
+        ease: "power2.inOut",
+        onUpdate: function () {
+          setCounter(Math.round(this.targets()[0].val));
+        },
+      }
+    );
+
+    // Fade counter out slightly before pop-up
+    tl.to(
+      ".loader-content",
+      {
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.4,
+        ease: "power2.in",
+      },
+      "-=0.4"
+    );
+
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   // ── Phase 2: Pop-up reveal ──────────────────────────────
@@ -79,6 +107,14 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       "-=0.3"
     );
 
+    // Provide the content an elegant staged entry like the original version
+    tl.fromTo(
+      paperRef.current?.querySelectorAll("h1, h2, h3, p, img, button, .meta-fade") || [],
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1.2, stagger: 0.05, ease: "power3.out" },
+      "-=1.0"
+    );
+
     // After pop-up, hide the loader div entirely
     tl.set(loaderRef.current, { display: "none" });
   }, [phase]);
@@ -86,6 +122,7 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   // ── Phase 3: Scroll-driven unroll ───────────────────────
   useEffect(() => {
     if (phase !== "ready") return;
+    if (window.innerWidth < 768) return;
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -93,6 +130,12 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
         start: "top top",
         end: "+=50%",
         scrub: 0.5,
+        onLeave: (self) => {
+          // Force the scrub timeline to 100% instantly if it's lagging behind
+          if (self.animation) self.animation.progress(1);
+          // Kill the trigger so it permanently locks open and doesn't roll back up
+          self.kill(false);
+        }
       },
     });
 
@@ -123,42 +166,44 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   }, [phase]);
 
   return (
-    <div
-      ref={outerRef}
-      className="relative"
-      style={{ perspective: "1200px", perspectiveOrigin: "center 40%" }}
-    >
-      {/* ── Loading overlay ─────────────────────────────── */}
+    <>
+      {/* ── Loading overlay (black background) ─────────── */}
       <div
         ref={loaderRef}
-        className="fixed inset-0 z-[200] bg-[#0a0a0a] flex flex-col items-center justify-center gap-6"
+        className="fixed inset-0 z-[200] bg-black flex flex-col items-center justify-center text-paper"
       >
-        <span
-          ref={counterTextRef}
-          className="font-mono font-black text-white/10 tabular-nums select-none"
-          style={{ fontSize: "clamp(8rem, 28vw, 26rem)" }}
-        >
-          0
-        </span>
-        <span className="font-sans text-[10px] uppercase tracking-[0.5em] text-white/20 font-bold">
-          The Hypertext Herald
-        </span>
+        {phase === "loading" && (
+          <div className="loader-content flex flex-col items-center gap-4">
+            <h2 className="font-serif text-2xl uppercase tracking-[0.3em] opacity-50 text-center">
+              The Hypertext Herald
+            </h2>
+            <div className="font-sans text-8xl md:text-9xl font-black tabular-nums tracking-tighter">
+              {counter}%
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* ── Dark surface (always behind paper) ──────────── */}
-      <div className="unfurl-dark-bg fixed inset-0 bg-[#0e0e0e] z-[-1] pointer-events-none" />
+      {/* ── Dark surface (always behind paper, covers viewport smoothly) ──────────── */}
+      <div className="unfurl-dark-bg fixed inset-0 w-full h-full bg-[#0e0e0e] z-[-1] pointer-events-none" />
 
-      {/* ── The paper (contains all children) ──────────── */}
+      {/* ── Perspective Wrapper ──────────── */}
       <div
-        ref={paperRef}
-        className="relative w-full will-change-transform"
-        style={{ transformStyle: "preserve-3d", transformOrigin: "center top" }}
+        ref={outerRef}
+        className="relative w-full overflow-hidden"
+        style={{ perspective: "1200px", perspectiveOrigin: "center 40%" }}
       >
-        {children}
+        {/* ── The paper (contains all children) ──────────── */}
+        <div
+          ref={paperRef}
+          className="relative w-full will-change-transform"
+          style={{ transformStyle: "preserve-3d", transformOrigin: "center top" }}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
-
 
 export default PageUnfurl;

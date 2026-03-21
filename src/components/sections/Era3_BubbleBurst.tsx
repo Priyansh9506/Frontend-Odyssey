@@ -1,0 +1,158 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Tilt3D from "@/components/Tilt3D";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export default function Era3_BubbleBurst() {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. Shaky/Chaotic text reveal
+      gsap.fromTo(
+        ".crash-anim",
+        { y: -20, opacity: 0, rotate: () => Math.random() * 10 - 5 },
+        {
+          y: 0,
+          opacity: 1,
+          rotate: 0,
+          duration: 1.5,
+          ease: "elastic.out(1, 0.3)",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 60%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".era3-reveal",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 60%",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section 
+      ref={sectionRef} 
+      className="relative w-full min-h-screen bg-paper pt-32 pb-40 px-4 md:px-12 flex flex-col items-center border-x-[8px] md:border-x-[40px] border-paper text-ink overflow-hidden"
+    >
+      {/* ── Chaotic Grid Background overlay ── */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'100\\' height=\\'100\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 100L100 0M0 0L100 100\\' stroke=\\'rgba(26,26,26,0.02)\\' stroke-width=\\'2\\' fill=\\'none\\'%3E%3C/svg%3E')] opacity-30 pointer-events-none"></div>
+
+      {/* Newspaper Header - Broken formatting */}
+      <header className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center border-b-[8px] border-ink border-dashed pb-6 mb-16 relative z-10">
+        <h1 className="font-serif text-[11vw] leading-[0.8] uppercase font-black tracking-tighter text-ink text-center flex flex-col w-full px-4">
+          <div className="w-full text-center border-b-4 border-ink pb-4 mb-4 transform -rotate-1 origin-bottom-left crash-anim">
+            THE BUBBLE
+          </div>
+          <div className="text-accent transform rotate-1 origin-top-right crash-anim pb-2">
+            BURSTS
+          </div>
+        </h1>
+        <div className="w-full mt-6 flex justify-between items-center border-t-[4px] border-ink pt-4 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.2em] px-4">
+          <span>Vol. 3 March 10, 2000</span>
+          <span className="hidden md:inline-block outline-text text-center text-accent">TRILLIONS ERASED OVERNIGHT</span>
+          <Tilt3D intensity={15}><button className="text-paper bg-ink px-4 py-1 hover:bg-accent hover:animate-pulse transition-colors" data-cursor="hover">Priceless</button></Tilt3D>
+        </div>
+      </header>
+
+      {/* Main Grid */}
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+        
+        {/* Left Column (The Crash) */}
+        <div className="lg:col-span-5 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 lg:border-r-[4px] lg:border-ink/20 pr-0 lg:pr-10">
+          <Tilt3D intensity={5}>
+            <div className="w-full overflow-hidden border-[4px] border-ink era3-reveal bg-zinc-200">
+              <img 
+                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop" 
+                alt="Stock market crash symbolism" 
+                className="w-full h-auto object-cover grayscale contrast-125" 
+              />
+            </div>
+          </Tilt3D>
+          
+          <h2 className="text-4xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter border-b-[2px] border-ink pb-4 mt-4 era3-reveal transform -rotate-1">
+            "Get Big Fast"<br/><span className="text-accent text-3xl md:text-4xl">Go Broke Faster.</span>
+          </h2>
+          
+          <p className="first-letter:text-[5rem] first-letter:font-black first-letter:float-left first-letter:mr-4 first-letter:mt-1 first-letter:leading-[0.75] text-justify era3-reveal">
+            Between 1995 and its peak in March 2000, the NASDAQ composite stock market index surged 400%, fueled by unprecedented speculation in web-based companies. 
+          </p>
+          <p className="text-justify era3-reveal">
+            Investors poured millions into any startup ending in ".com", ignoring traditional metrics like profit, P/E ratios, or even viable business models. Throwing parties was standard; turning a profit was an afterthought.
+          </p>
+          <p className="text-justify font-bold mt-2 era3-reveal">
+            When capital dried up in late 2000, the implosion was total. Companies like Pets.com, Webvan, and eToys burned through hundreds of millions before abruptly shutting off their servers forever.
+          </p>
+        </div>
+
+        {/* Right Column (The Survivors) */}
+        <div className="lg:col-span-7 flex flex-col gap-10">
+          <h3 className="text-4xl font-serif font-bold border-b-4 border-ink pb-2 uppercase tracking-tight era3-reveal">From the Ashes: The Survivors</h3>
+          
+          <div className="flex flex-col gap-8">
+            {/* Amazon Section */}
+            <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#1a1a1a] era3-reveal group">
+              <div className="w-full md:w-1/3 min-h-[150px] bg-zinc-100 border-[2px] border-ink flex items-center justify-center p-4">
+                <span className="font-serif font-black text-3xl tracking-tighter group-hover:text-accent transition-colors">amazon.com</span>
+              </div>
+              <div className="w-full md:w-2/3 font-newspaper text-lg flex flex-col justify-center">
+                <p className="text-justify">
+                  Founded by Jeff Bezos as an online bookstore, Amazon famously told investors they wouldn't see profits for years. Their stock plummeted from $107 to $6 during the crash. 
+                </p>
+                <p className="mt-2 text-justify">
+                  By strictly prioritizing market share and infrastructure over short-term returns, they survived the purge to become the largest online retailer in the world.
+                </p>
+              </div>
+            </div>
+
+            {/* eBay Section */}
+            <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#cc0000] era3-reveal group">
+              <div className="w-full md:w-1/3 min-h-[150px] bg-zinc-100 border-[2px] border-ink flex flex-col items-center justify-center p-4">
+                <span className="font-sans font-black text-4xl tracking-tighter group-hover:scale-110 transition-transform"><span className="text-[#e53238]">e</span><span className="text-[#0064d2]">b</span><span className="text-[#f5af02]">a</span><span className="text-[#86b817]">y</span></span>
+              </div>
+              <div className="w-full md:w-2/3 font-newspaper text-lg flex flex-col justify-center">
+                <p className="text-justify">
+                  Starting simply as "AuctionWeb" by Pierre Omidyar, eBay was unique: it was genuinely profitable from day one. Instead of holding massive inventory, they simply connected buyers with sellers for a tiny fee.
+                </p>
+                <p className="mt-2 text-justify">
+                  While others burned cash on Super Bowl ads, eBay quietly built a monopoly on digital auctions, weathering the storm with incredibly high margins.
+                </p>
+              </div>
+            </div>
+            
+            {/* Google / Web 2.0 Tease */}
+            <div className="w-full mt-4 p-8 bg-ink border-[4px] border-ink text-paper text-center era3-reveal">
+               <h4 className="font-sans text-xl md:text-2xl font-black uppercase tracking-widest mb-4">The Next Paradigm</h4>
+               <p className="font-newspaper text-lg max-w-2xl mx-auto">
+                 The crash wiped the slate clean. The gimmicks died, but the infrastructure—thousands of miles of fiber-optic cable laid during the boom—remained. The surviving algorithms, search engines, and social protocols quietly laid the bedrock for what was coming next: <span className="text-accent underline">Web 2.0</span>.
+               </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  );
+}

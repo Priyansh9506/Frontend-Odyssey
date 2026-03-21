@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "OldNewspaperTypes";
+  src: url("/fonts/OldNewspaperTypes.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-paper: rgb(205, 198, 190);
   --color-ink: #1a1a1a;
@@ -7,6 +15,7 @@
 
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-inter);
+  --font-newspaper: "OldNewspaperTypes", serif;
 }
 
 @theme inline {
@@ -16,6 +25,7 @@
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
+  --font-newspaper: var(--font-newspaper);
 }
 
 /* ── Base ─────────────────────────────────────────────── */
@@ -39,18 +49,32 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* ── Hide scrollbar ───────────────────────────────────── */
+/* ── Hide scrollbar globally ──────────────────────────── */
+html, body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, Opera */
+}
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* ── Retro Win95 cursor (DotCom section only) ─────────── */
-.retro-cursor {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-6 1-4 7-1-8-3-9z' fill='white' stroke='black' stroke-width='1'/%3E%3C/svg%3E") 5 3, auto !important;
+.retro-cursor, .retro-cursor * {
+  cursor: url('/cursor/cursor.png'), auto !important;
 }
+
 .retro-cursor button,
+.retro-cursor button *,
 .retro-cursor a,
-.retro-cursor .retro-pointer {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28'%3E%3Cpath d='M12 2c0 0-1 4-1 8 0 2-3 2-5 2l6 14 2-8h5l-7-16z' fill='white' stroke='black' stroke-width='1'/%3E%3C/svg%3E") 10 2, pointer !important;
+.retro-cursor a *,
+.retro-cursor [role="button"],
+.retro-cursor [role="button"] *,
+.retro-cursor .retro-pointer,
+.retro-cursor .retro-pointer * {
+  cursor: url('/cursor/pointer.png'), pointer !important;
 }
 
 /* ── Premium animations ───────────────────────────────── */
