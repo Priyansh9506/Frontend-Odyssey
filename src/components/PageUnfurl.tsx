@@ -17,9 +17,8 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   const outerRef = useRef<HTMLDivElement>(null);
   const paperRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLDivElement>(null);
+  const counterTextRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<"loading" | "popup" | "ready">("loading");
-
-  const [counter, setCounter] = useState(0);
 
   // ── Phase 1: Setup initial state & loading counter ─────────
   useEffect(() => {
@@ -47,15 +46,17 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       onComplete: () => setPhase("popup"),
     });
 
-    // 0 to 100% counter animation
+    // 2026 to 1969 counter animation
     tl.to(
-      { val: 0 },
+      { val: 2026 },
       {
-        val: 100,
+        val: 1969,
         duration: 2.5,
         ease: "power2.inOut",
         onUpdate: function () {
-          setCounter(Math.round(this.targets()[0].val));
+          if (counterTextRef.current) {
+            counterTextRef.current.textContent = Math.round(this.targets()[0].val).toString();
+          }
         },
       }
     );
@@ -148,16 +149,8 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       ease: "none",
     });
 
-    // Fade the dark background
-    tl.to(
-      ".unfurl-dark-bg",
-      {
-        opacity: 0,
-        duration: 1,
-        ease: "none",
-      },
-      "<"
-    );
+    // The dark background (.unfurl-dark-bg) now stays fully opaque (black) 
+    // throughout the scroll to maintain a professional dark transition behind the paper.
 
     return () => {
       tl.scrollTrigger?.kill();
@@ -177,8 +170,12 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
             <h2 className="font-serif text-2xl uppercase tracking-[0.3em] opacity-50 text-center">
               The Hypertext Herald
             </h2>
-            <div className="font-sans text-8xl md:text-9xl font-black tabular-nums tracking-tighter">
-              {counter}%
+            <div 
+              ref={counterTextRef}
+              className="text-8xl md:text-9xl tracking-tighter"
+              style={{ fontFamily: "'OldNewspaperTypes', serif", fontWeight: "normal" }}
+            >
+              2026
             </div>
           </div>
         )}

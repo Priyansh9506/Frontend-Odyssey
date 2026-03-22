@@ -105,16 +105,28 @@ export default function Era2_WWW() {
               {/* Image of Tim Berners-Lee / CERN */}
               <div className="w-full md:w-1/2 flex-shrink-0">
                 <Tilt3D intensity={4}>
-                  <div className="w-full h-[40vh] md:h-full min-h-[300px] border-[2px] md:border-[4px] border-ink overflow-hidden bg-zinc-200">
-                    {/* Placeholder for Tim Berners Lee / First Server - using Unsplash or similar */}
+                  <div className="w-full border-[2px] md:border-[4px] border-ink overflow-hidden bg-zinc-200">
+                    {/* Tim Berners Lee / First Server Image */}
                     <img 
-                      src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" 
-                      alt="Early computing technology symbolizing CERN servers" 
-                      className="w-full h-full object-cover filter contrast-125 sepia-[0.3]" 
+                      src="/images/NeXT-computer.png" 
+                      alt="The NeXT Computer used as the world's first web server" 
+                      className="w-full h-auto object-contain" 
                     />
                   </div>
                 </Tilt3D>
                 <p className="font-sans text-xs font-bold uppercase tracking-wider text-center mt-2">The NeXT Computer used as the world's first web server</p>
+                
+                {/* Tim Berners-Lee Image */}
+                <Tilt3D intensity={4}>
+                  <div className="w-full border-[2px] md:border-[4px] border-ink overflow-hidden bg-zinc-200 mt-6 md:mt-8">
+                    <img 
+                      src="/images/time-burners-lee.png" 
+                      alt="Tim Berners-Lee, inventor of the World Wide Web" 
+                      className="w-full h-auto object-cover" 
+                    />
+                  </div>
+                </Tilt3D>
+                <p className="font-sans text-xs font-bold uppercase tracking-wider text-center mt-2">Tim Berners-Lee, Inventor of the World Wide Web</p>
               </div>
               
               <div className="w-full flex-col gap-4">

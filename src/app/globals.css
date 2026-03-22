@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
 
 /* ── Retro Win95 cursor (DotCom section only) ─────────── */
 .retro-cursor, .retro-cursor * {
-  cursor: url('/cursor/cursor.png'), auto !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="black" stroke="white" stroke-width="1.5" stroke-linejoin="round" d="M4 4 l0 16 l4 -4 l4 8.5 l2.5 -1.5 l-4 -8.5 l5 -1 z"/></svg>') 4 4, default !important;
 }
 
 .retro-cursor button,
@@ -74,7 +74,7 @@ body::-webkit-scrollbar {
 .retro-cursor [role="button"] *,
 .retro-cursor .retro-pointer,
 .retro-cursor .retro-pointer * {
-  cursor: url('/cursor/pointer.png'), pointer !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="white" stroke="black" stroke-width="1.5" stroke-linejoin="round" d="M10 13 V5 a1 1 0 0 1 2 0 v6 h1 V7 a1 1 0 0 1 2 0 v4 h1 V8.5 a1 1 0 0 1 2 0 v8.5 l-2 6 h-5 l-4 -5 v-4 z"/></svg>') 10 5, pointer !important;
 }
 
 /* ── Premium animations ───────────────────────────────── */

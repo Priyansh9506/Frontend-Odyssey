@@ -92,7 +92,7 @@ export default function Era3_BubbleBurst() {
             </div>
           </Tilt3D>
           
-          <h2 className="text-4xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter border-b-[2px] border-ink pb-4 mt-4 era3-reveal transform -rotate-1">
+          <h2 className="text-4xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter border-b-[2px] border-ink pb-4 mt-4 era3-reveal">
             "Get Big Fast"<br/><span className="text-accent text-3xl md:text-4xl">Go Broke Faster.</span>
           </h2>
           
@@ -114,9 +114,13 @@ export default function Era3_BubbleBurst() {
           <div className="flex flex-col gap-8">
             {/* Amazon Section */}
             <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#1a1a1a] era3-reveal group">
-              <div className="w-full md:w-1/3 min-h-[150px] bg-zinc-100 border-[2px] border-ink flex items-center justify-center p-4">
-                <span className="font-serif font-black text-3xl tracking-tighter group-hover:text-accent transition-colors">amazon.com</span>
-              </div>
+              <a href="https://en.wikipedia.org/wiki/Jeff_Bezos" target="_blank" rel="noopener noreferrer" className="w-full md:w-1/3 border-[2px] border-ink overflow-hidden block group/img">
+                <img 
+                  src="/images/jeff-bezos-amazon.png" 
+                  alt="Jeff Bezos in early Amazon days" 
+                  className="w-full h-full object-cover min-h-[180px] grayscale contrast-125 group-hover/img:grayscale-0 transition-all duration-500"
+                />
+              </a>
               <div className="w-full md:w-2/3 font-newspaper text-lg flex flex-col justify-center">
                 <p className="text-justify">
                   Founded by Jeff Bezos as an online bookstore, Amazon famously told investors they wouldn't see profits for years. Their stock plummeted from $107 to $6 during the crash. 
@@ -129,9 +133,13 @@ export default function Era3_BubbleBurst() {
 
             {/* eBay Section */}
             <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#cc0000] era3-reveal group">
-              <div className="w-full md:w-1/3 min-h-[150px] bg-zinc-100 border-[2px] border-ink flex flex-col items-center justify-center p-4">
-                <span className="font-sans font-black text-4xl tracking-tighter group-hover:scale-110 transition-transform"><span className="text-[#e53238]">e</span><span className="text-[#0064d2]">b</span><span className="text-[#f5af02]">a</span><span className="text-[#86b817]">y</span></span>
-              </div>
+              <a href="https://en.wikipedia.org/wiki/EBay" target="_blank" rel="noopener noreferrer" className="w-full md:w-1/3 border-[2px] border-ink overflow-hidden block group/img">
+                <img 
+                  src="/images/ebay-founders.png" 
+                  alt="eBay founders in the early days" 
+                  className="w-full h-full object-cover min-h-[180px] grayscale contrast-125 group-hover/img:grayscale-0 transition-all duration-500"
+                />
+              </a>
               <div className="w-full md:w-2/3 font-newspaper text-lg flex flex-col justify-center">
                 <p className="text-justify">
                   Starting simply as "AuctionWeb" by Pierre Omidyar, eBay was unique: it was genuinely profitable from day one. Instead of holding massive inventory, they simply connected buyers with sellers for a tiny fee.

@@ -95,14 +95,14 @@ const Era1_Arpanet = () => {
       gsap.from(".timeline-node", {
         scale: 0,
         opacity: 0,
-        duration: 0.6,
+        duration: 0.8,
         ease: "back.out(2)",
-        stagger: 0.2,
-        clearProps: "all", // Clears inline GSAP styles after playing so CSS hovers work normally
+        stagger: 0.3,
         scrollTrigger: {
           trigger: ".timeline-container",
           start: "top 60%",
-          toggleActions: "play none none reverse"
+          end: "bottom 60%",
+          scrub: 1,
         },
       });
 
@@ -191,7 +191,7 @@ const Era1_Arpanet = () => {
         {/* Right Column (Sidebar Timeline) */}
         <div className="lg:col-span-3 flex flex-col gap-10 font-newspaper border-l-0 lg:border-l-[2px] lg:border-ink/60 pl-0 lg:pl-10 article-reveal timeline-container">
           <div className="sticky top-10">
-            <h3 className="text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 transform -rotate-2 hover:rotate-0 transition-transform cursor-default" data-cursor="hover">
+            <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 rotate-3 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg" data-cursor="hover">
               Timeline of the Nodes
             </h3>
             
@@ -212,32 +212,32 @@ const Era1_Arpanet = () => {
               
               <ul className="flex flex-col gap-16 relative">
                 <li className="flex flex-col relative z-10 pl-6 group">
-                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full group-hover:scale-150 transition-transform"></div>
-                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1">1969</span>
+                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full"></div>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1969</span>
                   <span className="text-lg leading-snug">First ARPANET node connected. "LO" message sent.</span>
                 </li>
                 
                 <li className="flex flex-col relative z-10 pl-6 group">
-                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full group-hover:scale-150 group-hover:bg-accent transition-all"></div>
-                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1">1973</span>
+                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full shadow-[0_0_15px_rgba(204,0,0,0.4)]"></div>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1973</span>
                   <span className="text-lg leading-snug">Global networking achieved. The term "internet" is coined.</span>
                 </li>
                 
                 <li className="flex flex-col relative z-10 pl-6 group">
-                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full group-hover:scale-150 group-hover:bg-accent transition-all"></div>
-                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1">1974</span>
+                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full"></div>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1974</span>
                   <span className="text-lg leading-snug">Vint Cerf & Bob Kahn publish the design for TCP (Transmission Control Protocol).</span>
                 </li>
                 
                 <li className="flex flex-col relative z-10 pl-6 group">
-                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full group-hover:scale-150 transition-transform shadow-[0_0_15px_#f25042]"></div>
-                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1">1983</span>
+                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full shadow-[0_0_15px_#f25042]"></div>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1983</span>
                   <span className="text-lg leading-snug font-bold">ARPANET transitions to TCP/IP. The modern internet is officially born.</span>
                 </li>
                 
                 <li className="flex flex-col relative z-10 pl-6 group">
-                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full group-hover:scale-150 group-hover:bg-accent transition-all"></div>
-                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1">1989</span>
+                  <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full"></div>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1989</span>
                   <span className="text-lg leading-snug">Tim Berners-Lee circulates the "informational management proposal" at CERN.</span>
                 </li>
               </ul>

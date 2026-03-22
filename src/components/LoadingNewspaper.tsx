@@ -7,10 +7,10 @@ const LoadingNewspaper = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const paperRef = useRef<HTMLDivElement>(null);
   const percentRef = useRef<HTMLDivElement>(null);
-  const counterRef = useRef({ value: 0 });
+  const counterRef = useRef({ value: 2026 });
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Phase 1: Count from 0 → 100
+  // Phase 1: Count from 2026 → 1969
   useEffect(() => {
     gsap.set(paperRef.current, {
       rotateX: 65,
@@ -21,17 +21,20 @@ const LoadingNewspaper = () => {
       opacity: 0,
     });
 
-    gsap.to(counterRef.current, {
-      value: 100,
-      duration: 2.5,
-      ease: "power2.inOut",
-      onUpdate: () => {
-        if (percentRef.current) {
-          percentRef.current.textContent = Math.round(counterRef.current.value) + "%";
-        }
-      },
-      onComplete: () => setIsLoaded(true),
-    });
+    gsap.fromTo(counterRef.current, 
+      { value: 2026 },
+      {
+        value: 1969,
+        duration: 2.5,
+        ease: "power2.inOut",
+        onUpdate: () => {
+          if (percentRef.current) {
+            percentRef.current.textContent = Math.round(counterRef.current.value).toString();
+          }
+        },
+        onComplete: () => setIsLoaded(true),
+      }
+    );
   }, []);
 
   // Phase 2: Unfurl the newspaper
@@ -79,13 +82,13 @@ const LoadingNewspaper = () => {
       className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950"
       style={{ perspective: "1200px" }}
     >
-      {/* Percentage counter */}
+      {/* Year counter */}
       <div
         ref={percentRef}
-        className="absolute inset-0 flex items-center justify-center font-mono font-bold text-white/[0.04] select-none"
-        style={{ fontSize: "clamp(8rem, 25vw, 28rem)" }}
+        className="absolute inset-0 flex items-center justify-center font-bold text-white/[0.04] select-none"
+        style={{ fontSize: "clamp(8rem, 25vw, 28rem)", fontFamily: "'OldNewspaperTypes', serif", fontWeight: "normal" }}
       >
-        0%
+        2026
       </div>
 
       {/* Newspaper card */}
