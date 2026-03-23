@@ -191,9 +191,11 @@ const Era1_Arpanet = () => {
         {/* Right Column (Sidebar Timeline) */}
         <div className="lg:col-span-3 flex flex-col gap-10 font-newspaper border-l-0 lg:border-l-[2px] lg:border-ink/60 pl-0 lg:pl-10 article-reveal timeline-container">
           <div className="sticky top-10">
-            <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 rotate-3 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg" data-cursor="hover">
-              Timeline of the Nodes
-            </h3>
+            <Tilt3D intensity={15} glare={false}>
+              <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 rotate-3 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg" data-cursor="hover">
+                Timeline of the Nodes
+              </h3>
+            </Tilt3D>
             
             <div className="relative pl-6">
               {/* Animated SVG Path for timeline connection */}
