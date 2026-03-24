@@ -71,11 +71,11 @@ export default function RetroWeb() {
           
           <div className="text-center w-full relative">
             <div className="flex justify-center items-center gap-4 mb-4 retro-element">
-              <img src="https://media.giphy.com/media/TADJ0HCgG7oxW/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated" />
+              <img src="/images/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated" />
               <h1 className="text-3xl md:text-5xl font-bold text-[#0000ff] underline">
                 Welcome to my Home Page!
               </h1>
-              <img src="https://media.giphy.com/media/TADJ0HCgG7oxW/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated" style={{ transform: "scaleX(-1)" }} />
+              <img src="/images/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated" style={{ transform: "scaleX(-1)" }} />
             </div>
             
             {/* Authentic HTML Marquee implementation using CSS animation fallback */}
@@ -104,7 +104,7 @@ export default function RetroWeb() {
                   <li>Added sick MIDI background music (currently playing).</li>
                   <li className="flex items-center justify-start gap-2 mt-2">
                     Check out my cool 3D spinning skull GIF! 
-                    <img src="https://media.giphy.com/media/TADJ0HCgG7oxW/giphy.gif" className="w-6 h-6 inline-block" alt="skull" />
+                    <img src="/images/giphy.gif" className="w-6 h-6 inline-block" alt="skull" />
                   </li>
                 </ul>
               </div>

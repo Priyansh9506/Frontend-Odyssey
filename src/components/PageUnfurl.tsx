@@ -51,8 +51,8 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       { val: 2026 },
       {
         val: 1969,
-        duration: 2.5,
-        ease: "power2.inOut",
+        duration: 1.8,
+        ease: "power3.inOut",
         onUpdate: function () {
           if (counterTextRef.current) {
             counterTextRef.current.textContent = Math.round(this.targets()[0].val).toString();
@@ -66,11 +66,11 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       ".loader-content",
       {
         opacity: 0,
-        scale: 0.9,
-        duration: 0.4,
+        scale: 0.95,
+        duration: 0.5,
         ease: "power2.in",
       },
-      "-=0.4"
+      "-=0.35"
     );
 
     return () => {
@@ -130,11 +130,32 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
         trigger: outerRef.current,
         start: "top top",
         end: "+=50%",
-        scrub: 0.5,
+        scrub: 0.8,
         onLeave: (self) => {
-          // Force the scrub timeline to 100% instantly if it's lagging behind
-          if (self.animation) self.animation.progress(1);
-          // Kill the trigger so it permanently locks open and doesn't roll back up
+          // Smoothly finish rather than force-snap
+          gsap.to(paperRef.current, {
+            scale: 1,
+            rotateX: 0,
+            borderRadius: "0px",
+            boxShadow: "0 0 0 rgba(0,0,0,0)",
+            duration: 0.4,
+            ease: "power2.out",
+            onComplete: () => {
+              // Clean up GPU-heavy styles to prevent ongoing jank
+              if (paperRef.current) {
+                paperRef.current.style.willChange = "auto";
+                paperRef.current.style.transformStyle = "flat";
+                paperRef.current.style.transform = "none";
+              }
+              if (outerRef.current) {
+                outerRef.current.style.perspective = "none";
+                outerRef.current.style.overflow = "visible";
+              }
+              // Hide the dark bg now that paper is fully open
+              const darkBg = document.querySelector('.unfurl-dark-bg') as HTMLElement;
+              if (darkBg) darkBg.style.display = "none";
+            }
+          });
           self.kill(false);
         }
       },
@@ -148,9 +169,6 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       duration: 1,
       ease: "none",
     });
-
-    // The dark background (.unfurl-dark-bg) now stays fully opaque (black) 
-    // throughout the scroll to maintain a professional dark transition behind the paper.
 
     return () => {
       tl.scrollTrigger?.kill();

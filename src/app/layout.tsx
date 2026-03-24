@@ -29,6 +29,9 @@ const RootLayout = ({
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preload" href="/fonts/OldNewspaperTypes.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent selection:text-white">
         <SmoothScrolling>{children}</SmoothScrolling>
       </body>

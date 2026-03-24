@@ -140,19 +140,21 @@ export default function Era4_Web2() {
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 era4-reveal mt-12 relative">
             
             {/* Left Column: Video exact match with upper text left column */}
-            <div className="w-full flex flex-col">
-              <div className="w-full border-[2px] border-ink overflow-hidden">
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  className="w-full h-auto object-cover"
-                >
-                  <source src="/video/mark-zukerberg-giving-demo.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <p className="font-sans text-[10px] md:text-xs font-bold uppercase tracking-wider text-center mt-2">Zuckerberg demonstrates TheFacebook on CNBC, 2004</p>
+            <div className="w-full flex flex-col items-center justify-center">
+              <Tilt3D intensity={5}>
+                <div className="w-full relative border-[2px] border-ink overflow-hidden group">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+                  >
+                    <source src="/video/mark-zukerberg-giving-demo.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </Tilt3D>
+              <p className="font-sans text-[10px] md:text-xs font-bold uppercase tracking-wider text-center mt-2 w-full">Zuckerberg demonstrates TheFacebook on CNBC, 2004</p>
             </div>
             
             {/* Right Column: Text article inset bordered matching upper right column */}
@@ -228,13 +230,14 @@ export default function Era4_Web2() {
           </div>
 
         </div>
+      </div>
 
-        {/* End of Volume 4 Marker */}
-        <div className="w-full max-w-7xl mx-auto border-t-[12px] border-ink mt-32 mb-16 relative era4-reveal">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-8 text-ink font-sans font-black tracking-[0.5em] text-sm py-2 border-4 border-ink">END OF VOL. 4</div>
-        </div>
+      {/* End of Volume 4 Marker */}
+      <div className="w-full max-w-7xl mx-auto border-t-[12px] border-ink mt-24 md:mt-32 mb-16 relative era4-reveal">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-8 text-ink font-sans font-black tracking-[0.5em] text-sm py-2 border-4 border-ink whitespace-nowrap">END OF VOL. 4</div>
       </div>
-      </div>
+
+    </div>
     </section>
   );
 }

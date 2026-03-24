@@ -71,40 +71,42 @@ const Era1_Arpanet = () => {
         }
       );
 
-      // 4. Timeline SVG Draw
-      if (svgLineRef.current) {
-        const length = svgLineRef.current.getTotalLength();
-        gsap.set(svgLineRef.current, { 
-          strokeDasharray: length, 
-          strokeDashoffset: length 
-        });
+      // 4. Timeline SVG Draw — deferred to avoid fighting PageUnfurl
+      setTimeout(() => {
+        if (svgLineRef.current) {
+          const length = svgLineRef.current.getTotalLength();
+          gsap.set(svgLineRef.current, { 
+            strokeDasharray: length, 
+            strokeDashoffset: length 
+          });
 
-        gsap.to(svgLineRef.current, {
-          strokeDashoffset: 0,
-          ease: "none",
+          gsap.to(svgLineRef.current, {
+            strokeDashoffset: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".timeline-container",
+              start: "top 80%",
+              end: "bottom 70%",
+              scrub: 0.3,
+            },
+          });
+        }
+
+        // 5. Timeline Nodes pop
+        gsap.from(".timeline-node", {
+          scale: 0,
+          opacity: 0,
+          duration: 0.8,
+          ease: "back.out(2)",
+          stagger: 0.3,
           scrollTrigger: {
             trigger: ".timeline-container",
-            start: "top 80%",
-            end: "bottom 70%",
-            scrub: 0.3,
+            start: "top 60%",
+            end: "bottom 60%",
+            scrub: 1,
           },
         });
-      }
-
-      // 5. Timeline Nodes pop
-      gsap.from(".timeline-node", {
-        scale: 0,
-        opacity: 0,
-        duration: 0.8,
-        ease: "back.out(2)",
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: ".timeline-container",
-          start: "top 60%",
-          end: "bottom 60%",
-          scrub: 1,
-        },
-      });
+      }, 100);
 
     }, sectionRef);
 
@@ -189,9 +191,9 @@ const Era1_Arpanet = () => {
         </div>
 
         {/* Right Column (Sidebar Timeline) */}
-        <div className="lg:col-span-3 flex flex-col gap-10 font-newspaper border-l-0 lg:border-l-[2px] lg:border-ink/60 pl-0 lg:pl-10 article-reveal timeline-container">
+        <div className="lg:col-span-3 flex flex-col gap-10 font-newspaper border-l-0 lg:border-l-[2px] lg:border-ink/60 pl-0 lg:pl-10 timeline-container">
           <div className="sticky top-10">
-            <Tilt3D intensity={15} glare={false}>
+            <Tilt3D intensity={8} glare={false}>
               <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 rotate-3 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg" data-cursor="hover">
                 Timeline of the Nodes
               </h3>
