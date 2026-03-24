@@ -90,3 +90,22 @@ body::-webkit-scrollbar {
 html {
   scroll-behavior: smooth;
 }
+
+/* GPU-accelerated infinite marquee with anti-jitter optimizations */
+@keyframes marquee-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+  will-change: transform;
+  
+  /* Anti-Jitter Subpixel Hacks */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

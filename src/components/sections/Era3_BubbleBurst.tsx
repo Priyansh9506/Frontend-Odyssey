@@ -47,15 +47,49 @@ export default function Era3_BubbleBurst() {
           },
         }
       );
+      // (marquee is now pure CSS — no GSAP needed for it)
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  // Ticker data with realistic historical crash figures
+  const tickers = [
+    { name: "NASDAQ", dir: "down", val: "78%" },
+    { name: "PETS.COM", dir: "down", val: "99%" },
+    { name: "AMAZON", dir: "up", val: "94%" },
+    { name: "WEBVAN", dir: "down", val: "94%" },
+    { name: "ETOYS", dir: "down", val: "99%" },
+    { name: "EBAY", dir: "up", val: "SURVIVES" },
+    { name: "INFOSEEK", dir: "down", val: "88%" },
+    { name: "THEGLOBE.COM", dir: "down", val: "97%" },
+    { name: "WORLDCOM", dir: "down", val: "99%" },
+    { name: "GEOCITIES", dir: "down", val: "85%" },
+  ];
+
+  const TickerRow = () => (
+    <>
+      {tickers.map((t, i) => (
+        <span key={i} className="flex items-center shrink-0">
+          <span className="px-6 md:px-10">
+            {t.name}{" "}
+            <span className={t.dir === "down" ? "text-accent" : "text-green-600"}>
+              {t.dir === "down" ? "▼" : "▲"}
+            </span>{" "}
+            <span className="font-sans font-light">
+              {t.val}
+            </span>
+          </span>
+          <span className="text-ink/15 text-[4vw] md:text-[2.5vw] shrink-0">✦</span>
+        </span>
+      ))}
+    </>
+  );
+
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full min-h-screen bg-paper pt-32 pb-40 px-4 md:px-12 flex flex-col items-center border-x-[8px] md:border-x-[40px] border-paper text-ink overflow-hidden"
+      className="relative w-full min-h-screen bg-paper pt-32 pb-32 flex flex-col items-center border-x-[8px] md:border-x-[40px] border-paper text-ink overflow-hidden"
     >
       {/* ── Chaotic Grid Background overlay ── */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'100\\' height=\\'100\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 100L100 0M0 0L100 100\\' stroke=\\'rgba(26,26,26,0.02)\\' stroke-width=\\'2\\' fill=\\'none\\'%3E%3C/svg%3E')] opacity-30 pointer-events-none"></div>
@@ -78,7 +112,7 @@ export default function Era3_BubbleBurst() {
       </header>
 
       {/* Main Grid */}
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10 px-4 md:px-12">
         
         {/* Left Column (The Crash) */}
         <div className="lg:col-span-5 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 lg:border-r-[4px] lg:border-ink/20 pr-0 lg:pr-10">
@@ -159,6 +193,14 @@ export default function Era3_BubbleBurst() {
             </div>
           </div>
           
+        </div>
+      </div>
+
+      {/* ── STOCK CRASH MARQUEE (pure CSS, GPU accelerated) ── */}
+      <div className="w-full border-y-[1px] border-ink/30 mt-16 md:mt-24 overflow-hidden bg-transparent text-ink relative z-10 py-5 md:py-7">
+        <div className="marquee-track font-serif text-[8vw] md:text-[5vw] leading-none tracking-tight uppercase whitespace-nowrap">
+          <TickerRow />
+          <TickerRow />
         </div>
       </div>
     </section>
