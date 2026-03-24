@@ -55,9 +55,6 @@ export default function Era4_Web2() {
     >
       {/* ── CINEMATIC TRANSITION ── */}
       <div ref={transitionRef} className="w-full min-h-[120vh] bg-ink flex flex-col items-center justify-center px-4 md:px-12 relative z-10 border-x-[8px] md:border-x-[40px] border-ink pb-24">
-        
-        {/* Subtle grid texture like Era 2 */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
 
         <div className="w-full max-w-5xl z-10 text-center flex flex-col gap-6 items-center">
           <CopyReveal blockColor="#1877F2" stagger={0.15} duration={1}>
@@ -233,10 +230,8 @@ export default function Era4_Web2() {
         </div>
 
         {/* End of Volume 4 Marker */}
-        <div className="w-full max-w-7xl mx-auto border-t-[8px] md:border-t-[12px] border-ink mt-24 md:mt-32 relative z-10 era4-reveal">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-4 md:px-8 text-ink font-sans font-black tracking-[0.3em] md:tracking-[0.5em] text-[10px] md:text-sm py-2 border-[2px] md:border-4 border-ink whitespace-nowrap">
-            ENTER THE ALGORITHMS
-          </div>
+        <div className="w-full max-w-7xl mx-auto border-t-[12px] border-ink mt-32 mb-16 relative era4-reveal">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-8 text-ink font-sans font-black tracking-[0.5em] text-sm py-2 border-4 border-ink">END OF VOL. 4</div>
         </div>
       </div>
       </div>
