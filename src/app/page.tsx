@@ -3,6 +3,9 @@ import Era2_WWW from "@/components/sections/Era2_WWW";
 import RetroWeb from "@/components/sections/RetroWeb";
 import Era3_BubbleBurst from "@/components/sections/Era3_BubbleBurst";
 import Era4_Web2 from "@/components/sections/Era4_Web2";
+import Era5_SocialMedia from "@/components/sections/Era5_SocialMedia";
+import Era6_Web3 from "@/components/sections/Era6_Web3";
+import Era7_Web3Burst from "@/components/sections/Era7_Web3Burst";
 import PageUnfurl from "@/components/PageUnfurl";
 
 const Home = () => {
@@ -28,6 +31,15 @@ const Home = () => {
 
         {/* Era 4: Web 2.0 & Social Media Pioneers */}
         <Era4_Web2 />
+
+        {/* Era 5: Facebook Dominance & Acquisitions */}
+        <Era5_SocialMedia />
+
+        {/* Era 6: Web 3.0 - The Decentralized Dream */}
+        <Era6_Web3 />
+
+        {/* Era 7: The Web 3.0 Bubble Burst */}
+        <Era7_Web3Burst />
       </div>
     </>
   );

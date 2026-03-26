@@ -43,7 +43,7 @@ Every scroll is a decade. Every animation is a turning point. Every pixel tells 
 
 ## 🌌 The Experience
 
-### 📰 Act I — *"The Dawn of ARPANET"* (1969–1989)
+### 📰 Act I (Era 1) — *"The Dawn of ARPANET"* (1969–1989)
 
 The page loads. A black void. A counter ticks from `0%` to `100%`. Then — like a newspaper being tossed onto a café table — a vintage broadsheet explodes into view with a cinematic 3D pop-up animation. **The Hypertext Herald** is born.
 
@@ -62,7 +62,7 @@ As you scroll past **END OF VOL. 1**, the world fades to black. Dead silence. Th
 
 </div>
 
-### 🕸️ Act II — *"The World Wide Web"* (1989–1999)
+### 🕸️ Act II (Era 2) — *"The World Wide Web"* (1989–1999)
 
 Tim Berners-Lee. CERN. The NeXT Computer. The proposal that nobody asked for but everyone needed. The newspaper returns, now documenting the birth of `HTML`, `HTTP`, and the explosive `.com` gold rush.
 
@@ -80,9 +80,25 @@ The entire design language shifts. You're inside an authentic **1996 GeoCities h
 
 It's absurd. It's nostalgic. It's *perfect*.
 
-### 💥 Act III — *"The Dot-Com Bubble Burst"* (2000–2001)
+### 💥 Act III (Era 3) — *"The Dot-Com Bubble Burst"* (2000–2001)
 
 The newspaper returns — but darker. Tilted headlines. Shattered layouts. The NASDAQ is in freefall. Pets.com is dead. But from the ashes, two names survive: **Amazon.com** and **eBay.com**. Their stories of resilience are told through chaotic, ink-stained columns.
+
+### 👥 Act IV (Era 4) — *"The Social Web"* (2004)
+
+A shift in the paradigm. The static web dies, and "Web 2.0" is born. Featuring a deep blue "CopyReveal" transition, this era introduces the protagonists of the new internet: Mark Zuckerberg, the Youtube Founders, and Jack Dorsey. Complete with a magical "Daily Prophet" moving photograph effect.
+
+### 👑 Act V (Era 5) — *"Digital Consolidation"* (2008–2016)
+
+The empire building begins. A cinematic red timeline traces Facebook's aggressive acquisition of Instagram and WhatsApp, and their rejection by Snapchat. Featuring an animated SVG scroll-path, floating 3D timeline nodes, and a profound question on digital monopolies.
+
+### ⛓️ Act VI (Era 6) — *"The Decentralized Dream"* (2009–2021)
+
+A stark Bitcoin-orange transition brings us to Web 3.0. The Genesis Block is mined by a ghost. Ethereum powers Smart Contracts. A massive surge in NFTs, featuring bored apes and crypto punks, culminating in Facebook's shocking rebrand to Meta.
+
+### 📉 Act VII (Era 7) — *"The Reckoning"* (2022–2026)
+
+History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. Meta Reality Labs torches $64 billion. The NFT market volume collapses 97%. The Meme Coin Graveyard leaves millions with worthless digital assets.
 
 ---
 
@@ -138,9 +154,17 @@ The newspaper returns — but darker. Tilted headlines. Shattered layouts. The N
 │           │                           #         spinning skull GIFs, hit counter,
 │           │                           #         guestbook crash dialog
 │           │
-│           └── Era3_BubbleBurst.tsx    # Ch.3 — NASDAQ crash, dot-com graveyard,
-│                                       #         Amazon & eBay survival stories,
-│                                       #         chaotic shattered newspaper layout
+│           ├── Era3_BubbleBurst.tsx    # Ch.3 — NASDAQ crash, dot-com graveyard,
+│                                       #         Amazon & eBay survival stories
+│           │
+│           ├── Era4_Web2.tsx           # Ch.4 — Web 2.0, Zuckerberg, YouTube, 
+│           │                           #         Twitter, Daily Prophet video
+│           │
+│           ├── Era5_SocialMedia.tsx    # Ch.5 — Acquisitions timeline, animated SVG path
+│           │
+│           ├── Era6_Web3.tsx           # Ch.6 — Bitcoin, Ethereum, NFTs, Meta rebrand
+│           │
+│           └── Era7_Web3Burst.tsx      # Ch.7 — The Web 3 crash, $64B loss, Meme coin graveyard
 │
 ├── CLAUDE.md                           # 🧠 AI pair-programming context & conventions
 ├── AGENTS.md                           # 🤖 Automated agent configuration
@@ -170,7 +194,7 @@ The newspaper returns — but darker. Tilted headlines. Shattered layouts. The N
 
 | Animation | Component | Description |
 |-----------|-----------|-------------|
-| **Miranda Unfurl** | `PageUnfurl.tsx` | 3-phase cinematic entry: loading counter → 3D paper pop-up → scroll-driven zoom to fullscreen |
+| **Unfurl** | `PageUnfurl.tsx` | 3-phase cinematic entry: loading counter → 3D paper pop-up → scroll-driven zoom to fullscreen |
 | **Block Reveal** | `CopyReveal.tsx` | Colored block sweeps across text, then shrinks to reveal — inspired by CodeGrid |
 | **Parallax Tilt** | `Tilt3D.tsx` | Mouse-tracking 3D perspective shift with optional glare overlay |
 | **SVG Path Draw** | `Era1_Arpanet.tsx` | Scroll-driven SVG stroke animation tracing the ARPANET node timeline |
@@ -204,18 +228,19 @@ Open **[http://localhost:3000](http://localhost:3000)** and let the newspaper un
 
 <div align="center">
 
-### *"Retro-Modernism"*
-*The tactile warmth of a 1960s broadsheet, powered by bleeding-edge web technology.*
+### *"Breathing Soul Into The Broadsheet"*
+*Before the internet, the world connected through ink and paper. We are bringing that soul back to the digital age.*
 
 </div>
 
-We don't just *tell* you about the history of the web — we make you **feel** it.
+Before the web, newspapers and printed articles were our primary vessels of human communication—tangible artifacts of history as it happened. **The Frontend Odyssey** takes this traditional, tactile medium and injects it with depth, movement, and soul.
 
-- **Era 1** wraps you in the texture of aged paper, ink-black typography, and the quiet hum of Cold War innovation.
-- **Era 2** shatters the fourth wall — you're suddenly *inside* a 1996 GeoCities homepage, complete with the exact cursor your parents used.
-- **Era 3** hits you with the chaos of financial collapse — tilted headlines, fractured layouts, and the ghosts of a thousand failed startups.
+By employing bleeding-edge web technology, we've made the static broadsheet feel alive:
+- **Depth & Perspective:** Interactive 3D tilt cards (`Tilt3D.tsx`) blur the line between screen and paper, reacting to the reader's every move.
+- **Living History:** Animated SVG timelines trace the actual growth of the network and corporate acquisitions, drawing the story as you scroll.
+- **Cinematic Motion:** Videos embed seamlessly into custom "Daily Prophet" moving photographs, while headlines and paragraphs reveal themselves precisely like a storyteller pausing for breath.
 
-Every transition is deliberate. Every font choice is intentional. Every animation serves the narrative.
+It focuses less on the dry, technical facts of the web, and more on how these shifts made us *feel*. It is a love letter to the past, built entirely with the tools of the future.
 
 ---
 
