@@ -181,7 +181,7 @@ Each era (2–7) follows this repeating structure:
 ### Images
 - Use raw `<img>` tags (not Next.js `<Image>`) for editorial photographs — this avoids hydration issues and allows simpler CSS control.
 - Apply `contrast-125` for vintage punch. Use `group-hover:scale-105 transition-all duration-700` for hover zoom.
-- Vintage scanline overlay SVG is used sparingly via `bg-[url(...)]` pseudo-patterns.
+- Vintage scanline overlay SVG is used sparingly via Tailwind dynamic url modifier pseudo-patterns.
 
 ---
 
