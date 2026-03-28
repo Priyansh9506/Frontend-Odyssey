@@ -76,11 +76,13 @@ const TheEditorsDesk = () => {
       }
     });
 
+    // Perfectly synchronized, ultra-smooth Expo easing prevents out-of-bounds 
+    // rotation values that break backface-visibility when sweeping past 180 degrees.
     tl.to(flipContainerRef.current, {
       height: targetHeight,
       rotateY: nextFlippedState ? 180 : 0,
       duration: 1.2,
-      ease: "power4.inOut" 
+      ease: "expo.inOut"
     });
   };
 
@@ -129,9 +131,9 @@ const TheEditorsDesk = () => {
           <div className="flex flex-col items-center gap-6 max-w-lg text-center mt-8 relative z-20 bg-[#f4ebd0]/90 p-8 md:p-10 border-2 border-ink shadow-[8px_8px_0_0_#1a1a1a] transform transition-transform group-hover:-translate-y-2">
             
             {/* Top Secret Stamp */}
-            <div className="absolute -top-10 -left-6 md:-top-12 md:-left-12 w-32 h-32 md:w-40 md:h-40 border-[6px] md:border-[8px] border-double border-[#DC2626] rounded-full flex flex-col items-center justify-center rotate-[-25deg] opacity-90 overflow-hidden mix-blend-multiply bg-transparent pointer-events-none">
-              <span className="text-[#DC2626] font-black text-2xl md:text-3xl uppercase tracking-tighter leading-none mt-2">Classified</span>
-              <span className="text-[#DC2626] font-bold text-[10px] md:text-xs tracking-widest border-t-[3px] border-dashed border-[#DC2626] mt-1 pt-1">DO NOT DISTRIBUTE</span>
+            <div className="absolute -top-8 -left-4 md:-top-10 md:-left-8 w-24 h-24 md:w-32 md:h-32 border-[4px] md:border-[6px] border-double border-[#DC2626] rounded-full flex flex-col items-center justify-center rotate-[-25deg] opacity-80 overflow-hidden mix-blend-multiply bg-transparent pointer-events-none">
+              <span className="text-[#DC2626] font-black text-lg md:text-xl uppercase tracking-tighter leading-none mt-1">Classified</span>
+              <span className="text-[#DC2626] font-bold text-[7px] md:text-[9px] tracking-widest border-t-[2px] border-dashed border-[#DC2626] mt-1 pt-0.5">DO NOT DISTRIBUTE</span>
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC41JyBudW1PY3RhdmVzPScxJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnIGZpbHRlcj0ndXJsKCNuKScgb3BhY2l0eT0nMC4yNScvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay"></div>
             </div>
 
@@ -230,22 +232,24 @@ const TheEditorsDesk = () => {
                   <p className="font-newspaper text-base md:text-lg mt-2 leading-tight px-4 xl:px-0">
                     A specialized artisan of the digital frontier, merging raw code with cinematic storytelling.
                   </p>
-                  <a 
-                    href="https://github.com/Priyansh9506" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="mt-6 border-[3px] border-ink w-full xl:w-auto text-center px-10 py-3 font-black text-sm uppercase hover:bg-[#DC2626] hover:border-[#DC2626] hover:text-white transition-colors"
-                  >
-                    GitHub Archives
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/in/priyansh-patel-046190264/" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="border-[3px] border-[#0A66C2] text-[#0A66C2] w-full xl:w-auto text-center px-10 py-3 font-black text-sm uppercase hover:bg-[#0A66C2] hover:text-white transition-colors"
-                  >
-                    LinkedIn Profile
-                  </a>
+                  <div className="flex flex-col gap-3 mt-6 w-full max-w-[240px]">
+                    <a 
+                      href="https://github.com/Priyansh9506" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="border-[3px] border-ink w-full text-center px-10 py-3 font-black text-sm uppercase hover:bg-[#DC2626] hover:border-[#DC2626] hover:text-white transition-colors"
+                    >
+                      GitHub Archives
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/priyansh-patel-046190264/" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="border-[3px] border-[#0A66C2] text-[#0A66C2] w-full text-center px-10 py-3 font-black text-sm uppercase hover:bg-[#0A66C2] hover:text-white transition-colors"
+                    >
+                      LinkedIn Profile
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

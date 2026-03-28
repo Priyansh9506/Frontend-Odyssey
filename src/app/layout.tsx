@@ -70,6 +70,28 @@ const RootLayout = ({
     >
       <head>
         <link rel="preload" href="/fonts/OldNewspaperTypes.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+
+        {/* Primary Meta Tags */}
+        <meta name="title" content="The Hypertext Herald | History of Web" />
+        <meta name="description" content="An immersive, newspaper-style journey through the evolution of the World Wide Web. Experience the history of the internet." />
+
+        {/* Open Graph / Facebook / WhatsApp / Instagram */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://history-of-web.vercel.app/" />
+        <meta property="og:title" content="The Hypertext Herald | History of Web" />
+        <meta property="og:description" content="An immersive, newspaper-style journey through the evolution of the World Wide Web. Experience the history of the internet." />
+        <meta property="og:image" content="https://history-of-web.vercel.app/icon.png" />
+        <meta property="og:image:secure_url" content="https://history-of-web.vercel.app/icon.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://history-of-web.vercel.app/" />
+        <meta name="twitter:title" content="The Hypertext Herald | History of Web" />
+        <meta name="twitter:description" content="An immersive, newspaper-style journey through the evolution of the World Wide Web. Experience the history of the internet." />
+        <meta name="twitter:image" content="https://history-of-web.vercel.app/icon.png" />
       </head>
       <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent selection:text-white" suppressHydrationWarning>
         <SmoothScrolling>{children}</SmoothScrolling>

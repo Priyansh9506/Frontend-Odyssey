@@ -101,75 +101,60 @@ A stark Bitcoin-orange transition brings us to Web 3.0. The Genesis Block is min
 
 History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. Meta Reality Labs torches $64 billion. The NFT market volume collapses 97%. The Meme Coin Graveyard leaves millions with worthless digital assets.
 
+### 🖋️ Epilogue — _"The Editor's Desk"_
+
+At the very bottom of the broadsheet lies the Editor's Desk. A Top Secret classified document waiting to be opened. Click it to trigger a buttery-smooth physics-based 3D flip, revealing the underlying architectural manifesto and the creator behind the odyssey.
+
 ---
 
 ## 🏗️ The Architect's Blueprint
 
-```
+```text
 📦 History-of-Web/
 │
 ├── 📂 public/                          # Static assets served at root
 │   ├── 📂 fonts/
 │   │   └── OldNewspaperTypes.ttf       # 📰 Vintage newspaper typeface
-│   └── 📂 images/
-│       ├── NeXT-computer.png           # Tim Berners-Lee's NeXT machine
-│       ├── time-burners-lee.png        # Portrait of the WWW inventor
-│       ├── email.png                   # The birth of electronic mail
-│       ├── jeff-bezos-amazon.png       # The survivor: Jeff Bezos
-│       └── ebay-founders.png           # The other survivor: eBay
+│   ├── 📂 video/
+│   │   ├── Meta-rebrand.mp4            # 🎥 Zuckerberg's Meta announcement
+│   │   └── mark-zukerberg-giving-demo.mp4 # 🎥 Early Facebook presentation
+│   └── 📂 images/                      
+│       ├── time-burners-lee.png        # 🖼️ Portrait of the WWW inventor
+│       ├── jeff-bezos-amazon.png       # 🖼️ The dot-com survivor: Jeff Bezos
+│       └── [...26+ historical assets]  # 🏛️ Curated retro images, GIFs, and logos
 │
 ├── 📂 src/
 │   ├── 📂 app/
-│   │   ├── globals.css                 # 🎨 Design tokens, custom fonts, retro cursors
-│   │   ├── layout.tsx                  # Root layout with Google Fonts (Cormorant + Inter)
-│   │   ├── page.tsx                    # 🚪 Entry portal — orchestrates all Eras
-│   │   └── favicon.ico
+│   │   ├── globals.css                 # 🎨 Design tokens, custom grids, retro cursors
+│   │   ├── layout.tsx                  # 🌐 Root layout with strict Open Graph SEO tags
+│   │   ├── page.tsx                    # 🚪 Entry portal — orchestrating all Eras
+│   │   └── icon.png                    # ✨ 1200x630 Social sharing open-graph image
 │   │
 │   └── 📂 components/
+│       ├── 📜 PageUnfurl.tsx           # ⭐ Cinematic 3D paper pop-up and scroll zoom
+│       ├── 📜 CopyReveal.tsx           # 🎬 CodeGrid-style block-reveal text animation
+│       ├── 📜 Tilt3D.tsx               # 🎭 Interactive parallax hover cards with glare
+│       ├── 📜 SmoothScrolling.tsx      # 🧈 Lenis-powered butter-smooth scroll wrapper
+│       ├── 📜 LoadingNewspaper.tsx     # ⏳ Vintage percentage-based interactive preloader
 │       │
-│       │── 📜 PageUnfurl.tsx           # ⭐ THE STAR — 3-phase cinematic page reveal:
-│       │                               #    Phase 1: Black screen + 0→100% counter
-│       │                               #    Phase 2: 3D paper pop-up with perspective tilt
-│       │                               #    Phase 3: Scroll-driven unfurl to fullscreen
-│       │
-│       │── 📜 CopyReveal.tsx           # 🎬 CodeGrid-style block-reveal text animation
-│       │── 📜 Tilt3D.tsx              # 🎭 Interactive parallax hover with dynamic glare
-│       │── 📜 SmoothScrolling.tsx     # 🧈 Lenis-powered butter-smooth scroll wrapper
-│       │── 📜 LoadingNewspaper.tsx     # 📰 Vintage loading sequence
-│       │
-│       └── 📂 sections/               # 📖 THE CHAPTERS OF HISTORY
+│       └── 📂 sections/                # 📖 THE CHAPTERS OF HISTORY
 │           │
-│           ├── Era1_Arpanet.tsx        # Ch.1 — ARPANET, packet switching, "LO",
-│           │                           #         email, animated node timeline,
-│           │                           #         Tilt3D cards, SVG path drawing
-│           │
-│           ├── Era2_WWW.tsx            # Ch.2 — Tim Berners-Lee, CERN, NeXT,
-│           │                           #         HTML/HTTP, the .com gold rush,
-│           │                           #         OldNewspaperTypes font reveals
-│           │
-│           ├── RetroWeb.tsx            # 🕹️  INTERACTIVE BREAK — GeoCities homepage,
-│           │                           #         Win98 Netscape Navigator frame,
-│           │                           #         spinning skull GIFs, hit counter,
-│           │                           #         guestbook crash dialog
-│           │
-│           ├── Era3_BubbleBurst.tsx    # Ch.3 — NASDAQ crash, dot-com graveyard,
-│                                       #         Amazon & eBay survival stories
-│           │
-│           ├── Era4_Web2.tsx           # Ch.4 — Web 2.0, Zuckerberg, YouTube,
-│           │                           #         Twitter, Daily Prophet video
-│           │
-│           ├── Era5_SocialMedia.tsx    # Ch.5 — Acquisitions timeline, animated SVG path
-│           │
-│           ├── Era6_Web3.tsx           # Ch.6 — Bitcoin, Ethereum, NFTs, Meta rebrand
-│           │
-│           └── Era7_Web3Burst.tsx      # Ch.7 — The Web 3 crash, $64B loss, Meme coin graveyard
+│           ├── Era1_Arpanet.tsx        # 💾 Ch.1 — ARPANET, packet switching, "LO"
+│           ├── Era2_WWW.tsx            # 🌐 Ch.2 — Tim Berners-Lee, HTML, dot-com boom
+│           ├── RetroWeb.tsx            # 🕹️ BREAK — 1996 GeoCities homepage simulation
+│           ├── Era3_BubbleBurst.tsx    # 💥 Ch.3 — NASDAQ crash, Amazon & eBay survival
+│           ├── Era4_Web2.tsx           # 👥 Ch.4 — Web 2.0, Facebook, YouTube, Twitter
+│           ├── Era5_SocialMedia.tsx    # 👑 Ch.5 — Monopolies, scroll-animated acquisitions
+│           ├── Era6_Web3.tsx           # ⛓️ Ch.6 — Bitcoin, Ethereum, NFTs, Meta rebrand
+│           ├── Era7_Web3Burst.tsx      # 📉 Ch.7 — The $64B Metaverse crash, crypto winter
+│           └── TheEditorsDesk.tsx      # 🖋️ FINALE — Interactive 3D flip architectural manifesto
 │
-├── CLAUDE.md                           # 🧠 AI pair-programming context & conventions
-├── AGENTS.md                           # 🤖 Automated agent configuration
+├── CLAUDE.md                           # 🧠 AI pair-programming context & guidelines
+├── AGENTS.md                           # 🤖 Automated agent rules and workflows
 ├── postcss.config.mjs                  # ⚙️ PostCSS pipeline (required by Tailwind v4)
-├── next.config.ts                      # Next.js configuration
-├── tsconfig.json                       # TypeScript compiler options
-└── package.json                        # Dependencies & scripts
+├── next.config.ts                      # 🏗️ Next.js 16 framework configuration
+├── tsconfig.json                       # 📘 TypeScript compiler strict options
+└── package.json                        # 📦 Dependencies and custom run scripts
 ```
 
 ---
@@ -185,6 +170,7 @@ History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. 
 | **Scroll**     | Lenis                                | Inertia-based smooth scrolling across all browsers                      |
 | **3D**         | Three.js + React Three Fiber         | WebGL-powered interactive 3D elements                                   |
 | **Typography** | Google Fonts + OldNewspaperTypes TTF | Cormorant Garamond (headlines), Inter (UI), OldNewspaperTypes (vintage) |
+| **SEO & Social**| Next.js Metadata API + Tags        | Fully configured Open Graph & Twitter Summary Large Image static tags for perfect link unfurling on WhatsApp, X, and iMessage |
 
 ---
 
@@ -194,10 +180,10 @@ History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. 
 | --------------------- | ------------------ | --------------------------------------------------------------------------------------------- |
 | **Unfurl**            | `PageUnfurl.tsx`   | 3-phase cinematic entry: loading counter → 3D paper pop-up → scroll-driven zoom to fullscreen |
 | **Block Reveal**      | `CopyReveal.tsx`   | Colored block sweeps across text, then shrinks to reveal — inspired by CodeGrid               |
+| **Interactive Flip**  | `TheEditorsDesk.tsx`| Physics-based 3D card flip using unified GSAP `expo.inOut` easing for buttery organic motion  |
 | **Parallax Tilt**     | `Tilt3D.tsx`       | Mouse-tracking 3D perspective shift with optional glare overlay                               |
 | **SVG Path Draw**     | `Era1_Arpanet.tsx` | Scroll-driven SVG stroke animation tracing the ARPANET node timeline                          |
 | **Character Cascade** | `Era1_Arpanet.tsx` | Each letter of "THE HYPERTEXT HERALD" animates individually with rotation + spring            |
-| **Content Stagger**   | `PageUnfurl.tsx`   | Headlines, images, and paragraphs glide upward with cascading delays on load                  |
 | **Hit Counter**       | `RetroWeb.tsx`     | Live-incrementing visitor counter with green-on-black terminal aesthetic                      |
 
 ---
