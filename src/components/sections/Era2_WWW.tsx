@@ -80,23 +80,32 @@ export default function Era2_WWW() {
 
         {/* Newspaper Header */}
         <header className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center border-b-[4px] md:border-b-[8px] border-ink pb-4 md:pb-6 mb-10 md:mb-16 relative z-10 era2-reveal">
-          <h1 className="font-serif text-[12vw] md:text-[9vw] leading-[0.85] uppercase font-bold tracking-tighter text-ink text-center flex flex-col w-full px-2 md:px-4">
+          <h1 className="font-serif text-[12vw] md:text-[9vw] leading-[0.85] uppercase font-bold tracking-tighter text-[#DC2626] text-center flex flex-col w-full px-2 md:px-4">
             <div className="w-full text-center pb-2 md:pb-4 mb-2 md:mb-4">
               The World Wide Web
             </div>
           </h1>
           <div className="w-full mt-4 md:mt-6 flex justify-between items-center border-t-[2px] md:border-t-[4px] border-ink pt-3 md:pt-4 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] px-2 md:px-4">
             <span>Vol. 2 August 06, 1991</span>
-            <span className="hidden md:inline-block outline-text text-center mx-2">Birth of the Browser</span>
-            <Tilt3D intensity={8} glare={false}><button className="text-paper bg-accent px-3 py-1 text-[10px] md:text-sm hover:bg-ink transition-colors whitespace-nowrap">Free Access</button></Tilt3D>
+            <span className="hidden md:inline-block outline-text text-center mx-2 text-[#DC2626]">Birth of the Browser</span>
+            <button 
+              onClick={() => {
+                if (navigator.share) navigator.share({ title: 'The Hypertext Herald', url: window.location.href }).catch(() => {});
+                else { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
+              }}
+              className="text-paper bg-ink px-4 py-1 text-[10px] md:text-sm hover:bg-[#cc0000] transition-colors whitespace-nowrap" 
+              data-cursor="hover"
+            >
+              Share
+            </button>
           </div>
         </header>
 
         {/* Hero Content Grid (Multi-column) */}
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10">
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-8 md:gap-12 relative z-10">
           
           {/* Left Column (Tim Berners-Lee & WWW) */}
-          <div className="lg:col-span-7 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 lg:border-r-[2px] lg:border-ink/60 pr-0 lg:pr-10">
+          <div className="xl:col-span-7 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 xl:border-r-[2px] xl:border-ink/60 pr-0 xl:pr-10">
             <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter border-b-[2px] md:border-b-4 border-ink pb-3 md:pb-4 era2-reveal">
               A Web of Information at CERN
             </h2>
@@ -146,7 +155,7 @@ export default function Era2_WWW() {
           </div>
 
           {/* Right Column (.com Trend) */}
-          <div className="lg:col-span-5 flex flex-col gap-8">
+          <div className="xl:col-span-5 flex flex-col gap-8">
             <div className="p-6 md:p-8 bg-zinc-200 border-[2px] md:border-[4px] border-ink era2-reveal">
               <h3 className="text-2xl md:text-3xl font-black uppercase mb-4 leading-none inline-block bg-accent text-paper px-2 py-1">The .com Gold Rush</h3>
               <p className="font-newspaper text-lg text-justify">

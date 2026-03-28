@@ -106,16 +106,25 @@ export default function Era3_BubbleBurst() {
         </h1>
         <div className="w-full mt-6 flex justify-between items-center border-t-[4px] border-ink pt-4 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.2em] px-4">
           <span>Vol. 3 March 10, 2000</span>
-          <span className="hidden md:inline-block outline-text text-center text-accent">TRILLIONS ERASED OVERNIGHT</span>
-          <Tilt3D intensity={15}><button className="text-paper bg-ink px-4 py-1 hover:bg-accent hover:animate-pulse transition-colors" data-cursor="hover">Priceless</button></Tilt3D>
+          <span className="hidden md:inline-block outline-text text-center text-[#DC2626]">TRILLIONS ERASED OVERNIGHT</span>
+          <button 
+            onClick={() => {
+              if (navigator.share) navigator.share({ title: 'The Hypertext Herald', url: window.location.href }).catch(() => {});
+              else { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
+            }}
+            className="text-paper bg-ink px-4 py-1 hover:bg-[#cc0000] transition-colors" 
+            data-cursor="hover"
+          >
+            Share
+          </button>
         </div>
       </header>
 
       {/* Main Grid */}
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10 px-4 md:px-12">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-12 relative z-10 px-4 md:px-12">
         
         {/* Left Column (The Crash) */}
-        <div className="lg:col-span-5 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 lg:border-r-[4px] lg:border-ink/20 pr-0 lg:pr-10">
+        <div className="xl:col-span-5 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 xl:border-r-[4px] xl:border-ink/20 pr-0 xl:pr-10">
           <Tilt3D intensity={5}>
             <div className="w-full overflow-hidden border-[4px] border-ink era3-reveal bg-zinc-200">
               <img 
@@ -142,7 +151,7 @@ export default function Era3_BubbleBurst() {
         </div>
 
         {/* Right Column (The Survivors) */}
-        <div className="lg:col-span-7 flex flex-col gap-10">
+        <div className="xl:col-span-7 flex flex-col gap-10">
           <h3 className="text-4xl font-serif font-bold border-b-4 border-ink pb-2 uppercase tracking-tight era3-reveal">From the Ashes: The Survivors</h3>
           
           <div className="flex flex-col gap-8">

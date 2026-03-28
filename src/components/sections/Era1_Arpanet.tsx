@@ -29,8 +29,7 @@ const Era1_Arpanet = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 0. Disable animations on tablet and mobile
-      if (window.innerWidth < 1024) return;
+      // Mobile animations enabled
 
       // 1. Initial Hero Text Reveal
       const tl = gsap.timeline();
@@ -71,8 +70,10 @@ const Era1_Arpanet = () => {
         }
       );
 
-      // 4. Timeline SVG Draw — deferred to avoid fighting PageUnfurl
+      // 4. Timeline SVG Draw
       setTimeout(() => {
+        const isTablet = window.innerWidth < 1280;
+        
         if (svgLineRef.current) {
           const length = svgLineRef.current.getTotalLength();
           gsap.set(svgLineRef.current, { 
@@ -85,9 +86,9 @@ const Era1_Arpanet = () => {
             ease: "none",
             scrollTrigger: {
               trigger: ".timeline-container",
-              start: "top 80%",
-              end: "bottom 70%",
-              scrub: 0.3,
+              start: isTablet ? "top 85%" : "top 80%",
+              end: isTablet ? "bottom 95%" : "bottom 70%",
+              scrub: isTablet ? 0.1 : 0.3,
             },
           });
         }
@@ -96,14 +97,14 @@ const Era1_Arpanet = () => {
         gsap.from(".timeline-node", {
           scale: 0,
           opacity: 0,
-          duration: 0.8,
+          duration: isTablet ? 0.4 : 0.8,
           ease: "back.out(2)",
-          stagger: 0.3,
+          stagger: isTablet ? 0.15 : 0.3,
           scrollTrigger: {
             trigger: ".timeline-container",
-            start: "top 60%",
-            end: "bottom 60%",
-            scrub: 1,
+            start: isTablet ? "top 75%" : "top 60%",
+            end: isTablet ? "bottom 85%" : "bottom 60%",
+            scrub: isTablet ? 0.5 : 1,
           },
         });
       }, 100);
@@ -125,22 +126,31 @@ const Era1_Arpanet = () => {
           <div className="w-full text-center border-b-[2px] md:border-b-4 border-ink pb-2 md:pb-4 mb-2 md:mb-4" data-cursor="hover">
             <SplitTextChars text="The Hypertext" />
           </div>
-          <div data-cursor="hover">
+          <div className="text-[#DC2626]" data-cursor="hover">
             <SplitTextChars text="Herald" />
           </div>
         </h1>
         <div className="w-full mt-4 md:mt-6 flex justify-between items-center border-t-[2px] md:border-t-[4px] border-ink pt-3 md:pt-4 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.1em] md:tracking-[0.2em] px-2 md:px-4 meta-fade">
           <span>Vol. 1 Oct 29, 1969</span>
-          <span className="hidden md:inline-block outline-text text-center mx-2">The Dawn of Packet Switching</span>
-          <Tilt3D intensity={8} glare={false}><button className="text-paper bg-accent px-3 py-1 text-[10px] md:text-sm hover:bg-ink transition-colors whitespace-nowrap" data-cursor="hover">Two Cents</button></Tilt3D>
+          <span className="hidden md:inline-block outline-text text-center mx-2 text-[#DC2626]">The Dawn of Packet Switching</span>
+          <button 
+            onClick={() => {
+              if (navigator.share) navigator.share({ title: 'The Hypertext Herald', url: window.location.href }).catch(() => {});
+              else { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
+            }}
+            className="text-paper bg-ink px-4 py-1 text-[10px] md:text-sm hover:bg-[#cc0000] transition-colors whitespace-nowrap" 
+            data-cursor="hover"
+          >
+            Share
+          </button>
         </div>
       </header>
 
       {/* Hero Content Grid (Multi-column) */}
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-8 md:gap-12 relative z-10">
         
         {/* Left Column (Main Article) */}
-        <div className="lg:col-span-4 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 lg:border-r-[2px] lg:border-ink/60 pr-0 lg:pr-10">
+        <div className="xl:col-span-4 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 xl:border-r-[2px] xl:border-ink/60 pr-0 xl:pr-10">
           <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter border-b-[2px] md:border-b-4 border-ink pb-3 md:pb-4 article-reveal">
             A Network is Born in the Shadows
           </h2>
@@ -161,9 +171,9 @@ const Era1_Arpanet = () => {
         </div>
 
         {/* Center Column (Featured Image) */}
-        <div className="lg:col-span-5 flex flex-col items-center">
+        <div className="xl:col-span-5 flex flex-col items-center">
           <div 
-            className="w-full h-[35vh] md:h-[50vh] lg:h-[70vh] overflow-hidden border-[2px] md:border-[4px] border-ink bg-zinc-200 relative transform transition-transform hover:-translate-y-2 duration-500 article-reveal"
+            className="w-full h-[35vh] md:h-[50vh] xl:h-[70vh] overflow-hidden border-[2px] md:border-[4px] border-ink bg-zinc-200 relative transform transition-transform hover:-translate-y-2 duration-500 article-reveal"
             data-cursor="hover"
           >
             <div 
@@ -191,25 +201,25 @@ const Era1_Arpanet = () => {
         </div>
 
         {/* Right Column (Sidebar Timeline) */}
-        <div className="lg:col-span-3 flex flex-col gap-10 font-newspaper border-l-0 lg:border-l-[2px] lg:border-ink/60 pl-0 lg:pl-10 timeline-container">
+        <div className="xl:col-span-3 flex flex-col gap-10 font-newspaper border-l-0 xl:border-l-[2px] xl:border-ink/60 pl-0 xl:pl-10 timeline-container">
           <div className="sticky top-10">
             <Tilt3D intensity={8} glare={false}>
-              <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 rotate-3 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg" data-cursor="hover">
+              <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-10 md:rotate-3 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg" data-cursor="hover">
                 Timeline of the Nodes
               </h3>
             </Tilt3D>
             
             <div className="relative pl-6">
               {/* Animated SVG Path for timeline connection */}
-              <svg className="absolute left-[5px] top-[24px] bottom-0 w-[40px] pointer-events-none overflow-visible" style={{ height: "calc(100% - 24px)" }} preserveAspectRatio="none">
+              <svg className="absolute left-[5px] top-0 bottom-0 w-[40px] h-full pointer-events-none overflow-visible" viewBox="0 -5 40 760" preserveAspectRatio="none">
                 <path 
                   ref={svgLineRef}
                   d="M0,0 C20,60 -20,90 0,150 C20,210 -20,240 0,300 C20,360 -20,390 0,450 C20,510 -20,540 0,600 C20,660 -20,690 0,750" 
                   fill="none" 
                   stroke="#1a1a1a" 
                   strokeWidth="3" 
-                  strokeDasharray="1000"
-                  strokeDashoffset="1000"
+                  strokeDasharray="2000"
+                  strokeDashoffset="2000"
                   className="drop-shadow-sm"
                 />
               </svg>

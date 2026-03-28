@@ -45,7 +45,7 @@ export default function Era6_Web3() {
       {/* ── CINEMATIC TRANSITION ── */}
       <div className="w-full min-h-[120vh] bg-ink flex flex-col items-center justify-center px-4 md:px-12 relative z-10 border-x-[8px] md:border-x-[40px] border-ink pb-24">
         <div className="w-full max-w-5xl z-10 text-center flex flex-col gap-6 items-center">
-          <CopyReveal blockColor="#F7931A" stagger={0.15} duration={1}>
+          <CopyReveal blockColor="#cc0000" stagger={0.15} duration={1}>
             <h2
               className="text-[20vw] md:text-[14vw] uppercase text-paper leading-[0.75] tracking-tighter"
               style={{ fontFamily: "'OldNewspaperTypes', serif", fontWeight: "normal" }}
@@ -54,9 +54,9 @@ export default function Era6_Web3() {
             </h2>
           </CopyReveal>
 
-          <div className="w-full h-[2px] bg-[#F7931A]/50 my-2"></div>
+          <div className="w-full h-[2px] bg-[#cc0000]/50 my-2"></div>
 
-          <CopyReveal blockColor="#F7931A" stagger={0.1} duration={0.8} delay={0.4}>
+          <CopyReveal blockColor="#cc0000" stagger={0.1} duration={0.8} delay={0.4}>
             <h3
               className="text-[8vw] md:text-[5vw] uppercase text-zinc-400 leading-none tracking-widest pl-2"
               style={{ fontFamily: "'OldNewspaperTypes', serif", fontWeight: "normal" }}
@@ -76,14 +76,23 @@ export default function Era6_Web3() {
             <div className="w-full text-center border-b-4 border-ink pb-4 mb-4">
               TRUSTLESS
             </div>
-            <div className="text-[#F7931A]">
+            <div className="text-[#DC2626]">
               TIMES
             </div>
           </h1>
           <div className="w-full mt-8 flex justify-between items-center border-y-[4px] border-ink py-3 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.2em] px-4 era6-reveal">
-            <span>Vol. 6 • January 2009</span>
-            <span className="hidden md:inline-block outline-text text-center text-[#F7931A]">CODE IS LAW</span>
-            <Tilt3D intensity={15}><button className="text-paper bg-ink px-4 py-1 hover:bg-[#F7931A] transition-colors" data-cursor="hover">Share</button></Tilt3D>
+            <span>Vol. 6 • 2009-2022</span>
+            <span className="hidden md:inline-block outline-text text-center text-[#DC2626]">CODE IS LAW</span>
+            <button 
+              onClick={() => {
+                if (typeof navigator !== 'undefined' && navigator.share) navigator.share({ title: 'The Hypertext Herald', url: window.location.href }).catch(() => {});
+                else if (typeof navigator !== 'undefined') { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
+              }}
+              className="text-paper bg-ink px-4 py-1 hover:bg-[#cc0000] transition-colors" 
+              data-cursor="hover"
+            >
+              Share
+            </button>
           </div>
         </header>
 
@@ -91,7 +100,7 @@ export default function Era6_Web3() {
         <div className="w-full max-w-7xl mx-auto grid grid-cols-12 gap-6 md:gap-10 px-4 md:px-0">
 
           {/* LEFT COLUMN: Bitcoin & The Genesis Block */}
-          <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
+          <div className="col-span-12 xl:col-span-8 flex flex-col gap-6">
 
             <h2 className="font-serif text-4xl md:text-5xl font-black uppercase leading-[1.05] border-b-[4px] border-ink pb-4 era6-reveal">
               The Genesis Block:<br/>A Ghost Writes The Future
@@ -101,13 +110,13 @@ export default function Era6_Web3() {
             <div className="text-justify font-newspaper text-lg era6-reveal">
               <div className="float-left mr-6 mb-4 w-[45%] md:w-[40%]">
                 <Tilt3D intensity={8}>
-                  <div className="relative border-[2px] border-ink overflow-hidden group">
+                  <a href="https://en.wikipedia.org/wiki/Satoshi_Nakamoto" target="_blank" rel="noopener noreferrer" className="block relative border-[2px] border-ink overflow-hidden group cursor-pointer">
                     <img
                       src="/images/satoshi-nakamoto.png"
                       alt="Satoshi Nakamoto Statue"
                       className="w-full h-auto object-contain contrast-125 group-hover:scale-105 transition-all duration-700"
                     />
-                  </div>
+                  </a>
                 </Tilt3D>
                 <p className="font-sans text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center mt-2 leading-tight">The Anonymous Creator: Satoshi Nakamoto</p>
               </div>
@@ -159,7 +168,7 @@ export default function Era6_Web3() {
               </h3>
               <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="w-full flex flex-col">
-                  <div className="w-full relative border-[2px] border-ink overflow-hidden group">
+                  <a href="https://opensea.io/item/ethereum/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/8585" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink overflow-hidden group cursor-pointer">
                     <img
                       src="/images/most-expensive-bored-ape.png"
                       alt="Bored Ape #8585"
@@ -168,7 +177,7 @@ export default function Era6_Web3() {
                     <div className="absolute top-2 left-2 bg-[#F7931A] text-white text-[10px] font-sans font-bold px-2 py-1">
                       #8585
                     </div>
-                  </div>
+                  </a>
                   <div className="border-x-[2px] border-b-[2px] border-ink p-3 bg-zinc-100">
                     <h4 className="font-serif text-lg font-black uppercase leading-tight">Bored Ape #8585</h4>
                     <p className="font-sans text-xs mt-1"><span className="font-bold text-[#F7931A]">696.969 ETH (~$2.7M)</span> • Oct 2021</p>
@@ -179,7 +188,7 @@ export default function Era6_Web3() {
                 </div>
 
                 <div className="w-full flex flex-col">
-                  <div className="w-full relative border-[2px] border-ink overflow-hidden group">
+                  <a href="https://opensea.io/item/ethereum/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/5822" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink overflow-hidden group cursor-pointer">
                     <img
                       src="/images/most-expensive-cryptopunk.png"
                       alt="CryptoPunk #5822"
@@ -188,7 +197,7 @@ export default function Era6_Web3() {
                     <div className="absolute top-2 left-2 bg-[#638596] text-white text-[10px] font-sans font-bold px-2 py-1">
                       #5822
                     </div>
-                  </div>
+                  </a>
                   <div className="border-x-[2px] border-b-[2px] border-ink p-3 bg-zinc-100">
                     <h4 className="font-serif text-lg font-black uppercase leading-tight">CryptoPunk #5822</h4>
                     <p className="font-sans text-xs mt-1"><span className="font-bold text-[#638596]">8,000 ETH (~$23.7M)</span> • Feb 12, 2022</p>
@@ -202,7 +211,7 @@ export default function Era6_Web3() {
           </div>
 
           {/* SIDEBAR: NFTs & Metaverse */}
-          <div className="col-span-12 lg:col-span-4 flex flex-col gap-12 border-t-[4px] lg:border-t-0 lg:border-l-[4px] border-ink pt-12 lg:pt-0 lg:pl-10">
+          <div className="col-span-12 xl:col-span-4 flex flex-col gap-12 border-t-[4px] xl:border-t-0 xl:border-l-[4px] border-ink pt-12 xl:pt-0 xl:pl-10">
 
             {/* NFT Explosion */}
             <div className="flex flex-col gap-4 era6-reveal">
@@ -212,7 +221,7 @@ export default function Era6_Web3() {
 
               <div className="w-full flex flex-col gap-4">
                 <Tilt3D intensity={12}>
-                  <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
+                  <a href="https://boredapeyachtclub.com/" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group cursor-pointer">
                     <img
                       src="/images/bored-ape-fun.png"
                       alt="Bored Ape Yacht Club"
@@ -221,12 +230,12 @@ export default function Era6_Web3() {
                     <div className="absolute top-2 right-2 bg-[#F7931A] text-white text-[10px] font-sans font-bold px-2 py-1 flex items-center gap-1">
                       <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div> BAYC
                     </div>
-                  </div>
+                  </a>
                 </Tilt3D>
 
                 <div className="w-full grid grid-cols-2 gap-3">
                   <Tilt3D intensity={12}>
-                    <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
+                    <a href="https://opensea.io/" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group cursor-pointer">
                       <img
                         src="/images/opensea.png"
                         alt="OpenSea NFT Marketplace"
@@ -235,11 +244,11 @@ export default function Era6_Web3() {
                       <div className="absolute bottom-1 left-1 bg-[#2081E2] text-white text-[8px] font-sans font-bold px-1.5 py-0.5">
                         OpenSea
                       </div>
-                    </div>
+                    </a>
                   </Tilt3D>
 
                   <Tilt3D intensity={12}>
-                    <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
+                    <a href="https://fr.wikipedia.org/wiki/Rarible" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group cursor-pointer">
                       <img
                         src="/images/rariable.png"
                         alt="Rarible NFT Marketplace"
@@ -248,7 +257,7 @@ export default function Era6_Web3() {
                       <div className="absolute bottom-1 left-1 bg-[#FEDA03] text-black text-[8px] font-sans font-bold px-1.5 py-0.5">
                         Rarible
                       </div>
-                    </div>
+                    </a>
                   </Tilt3D>
                 </div>
               </div>

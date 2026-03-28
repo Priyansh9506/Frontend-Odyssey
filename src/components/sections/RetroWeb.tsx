@@ -36,7 +36,7 @@ export default function RetroWeb() {
   return (
     <section 
       ref={containerRef} 
-      className="retro-cursor w-full min-h-screen py-20 px-4 md:px-12 flex flex-col items-center"
+      className="retro-cursor w-full min-h-screen py-20 px-4 md:px-12 flex flex-col items-center justify-center"
       // Authentic 90s tiled background using CSS inline style pattern
       style={{
         backgroundColor: "#000080", // Classic Navy Blue 90s BG
@@ -44,7 +44,40 @@ export default function RetroWeb() {
         fontFamily: "'Times New Roman', Times, serif"
       }}
     >
-      <div className="w-full max-w-4xl bg-[#c0c0c0] border-t-[4px] border-l-[4px] border-white border-b-[4px] border-r-[4px] border-[#808080] p-1 flex flex-col retro-element">
+      {/* MOBILE / TABLET VIEW: System Error regarding mobile devices */}
+      <div className="flex xl:hidden w-full max-w-sm md:max-w-lg lg:max-w-xl bg-[#c0c0c0] border-t-[4px] border-l-[4px] border-white border-b-[4px] border-r-[4px] border-[#808080] p-1 flex-col retro-element z-10 shadow-[8px_8px_0_0_rgba(0,0,0,0.5)]">
+        <div className="bg-[#000080] text-white font-bold px-2 md:px-4 py-1 md:py-2 flex justify-between items-center text-sm md:text-base font-sans mb-4">
+          <span>Error - Unknown Device</span>
+          <div className="flex gap-1">
+            <div className="w-4 h-4 md:w-5 md:h-5 bg-[#c0c0c0] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#808080] flex items-center justify-center text-black text-[10px] md:text-xs font-sans font-bold cursor-pointer hover:bg-red-500 hover:text-white">X</div>
+          </div>
+        </div>
+        
+        <div className="flex flex-col items-center gap-4 md:gap-6 px-4 md:px-8 pb-6 md:pb-8 font-sans text-center">
+          <div className="text-5xl md:text-7xl">🛑</div>
+          <div>
+            <p className="font-bold text-lg md:text-2xl mb-2 md:mb-3">UNSUPPORTED DEVICE</p>
+            <p className="text-sm md:text-base">
+              Our servers indicate you are attempting to access the World Wide Web from a "mobile phone" or "tablet".
+            </p>
+            <p className="text-sm md:text-base mt-3 md:mt-4 font-bold text-red-600">
+              * CRITICAL: These futuristic devices will not be invented for another decade!
+            </p>
+            <p className="text-sm md:text-base mt-3 md:mt-4">
+              Please return to your 56k dial-up modem and bulky CRT monitor to view this 1995 website safely.
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full flex justify-center pb-4 md:pb-6">
+          <div className="bg-[#c0c0c0] border-t-4 border-l-4 border-white border-b-4 border-r-4 border-[#808080] active:border-t-4 active:border-l-4 active:border-[#808080] active:border-b-4 active:border-r-4 active:border-white px-8 md:px-12 py-1 md:py-2 font-sans font-bold text-sm md:text-base hover:cursor-pointer mx-auto">
+            OK
+          </div>
+        </div>
+      </div>
+
+      {/* DESKTOP VIEW: Netscape Navigator */}
+      <div className="hidden xl:flex w-full max-w-4xl bg-[#c0c0c0] border-t-[4px] border-l-[4px] border-white border-b-[4px] border-r-[4px] border-[#808080] p-1 flex-col retro-element">
         {/* Retro Window Header */}
         <div className="bg-[#000080] text-white font-bold px-2 py-1 flex justify-between items-center text-sm font-sans">
           <span>Netscape Navigator - Welcome to the World Wide Web</span>

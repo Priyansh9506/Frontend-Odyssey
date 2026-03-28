@@ -2,7 +2,7 @@
 
 # ⚡ THE FRONTEND ODYSSEY ⚡
 
-### *A Cinematic Journey Through the Evolution of the Internet*
+### _A Cinematic Journey Through the Evolution of the Internet_
 
 <br/>
 
@@ -25,7 +25,7 @@
 
 <br/>
 
-> *"The web does not just connect machines, it connects people."* — **Tim Berners-Lee**
+> _"The web does not just connect machines, it connects people."_ — **Tim Berners-Lee**
 
 ---
 
@@ -43,13 +43,13 @@ Every scroll is a decade. Every animation is a turning point. Every pixel tells 
 
 ## 🌌 The Experience
 
-### 📰 Act I (Era 1) — *"The Dawn of ARPANET"* (1969–1989)
+### 📰 Act I (Era 1) — _"The Dawn of ARPANET"_ (1969–1989)
 
 The page loads. A black void. A counter ticks from `0%` to `100%`. Then — like a newspaper being tossed onto a café table — a vintage broadsheet explodes into view with a cinematic 3D pop-up animation. **The Hypertext Herald** is born.
 
 You're reading about the night Leonard Kleinrock's team sent `"LO"` across the wire. Animated SVG paths trace the growth of network nodes. Photographs shimmer with vintage scanline overlays. The **Timeline of Nodes** tracks each milestone with a parallax 3D tilt effect that follows your cursor.
 
-> *"We typed the L, and they got the L. We typed the O, and they got the O. Then we typed the G, and the system crashed."*
+> _"We typed the L, and they got the L. We typed the O, and they got the O. Then we typed the G, and the system crashed."_
 > — **Leonard Kleinrock**
 
 ### ⬛ The Blackout Transition
@@ -62,15 +62,16 @@ As you scroll past **END OF VOL. 1**, the world fades to black. Dead silence. Th
 
 </div>
 
-### 🕸️ Act II (Era 2) — *"The World Wide Web"* (1989–1999)
+### 🕸️ Act II (Era 2) — _"The World Wide Web"_ (1989–1999)
 
 Tim Berners-Lee. CERN. The NeXT Computer. The proposal that nobody asked for but everyone needed. The newspaper returns, now documenting the birth of `HTML`, `HTTP`, and the explosive `.com` gold rush.
 
-Then the newspaper *shatters*, and you're thrown headfirst into...
+Then the newspaper _shatters_, and you're thrown headfirst into...
 
-### 💾 The Retro Break — *"Welcome to My Home Page!"*
+### 💾 The Retro Break — _"Welcome to My Home Page!"_
 
 The entire design language shifts. You're inside an authentic **1996 GeoCities homepage**, complete with:
+
 - 🖱️ **Authentic Windows 98 pixelated cursors** (custom PNG files!)
 - 💀 **3D spinning skull GIFs** flanking the homepage title
 - 📟 A live **hit counter** that increments in real-time
@@ -78,25 +79,25 @@ The entire design language shifts. You're inside an authentic **1996 GeoCities h
 - ⚠️ A scrolling marquee warning you to use **Netscape Navigator 3.0**
 - 📝 A **"Sign My Guestbook"** button that crashes with a Windows 95 error dialog
 
-It's absurd. It's nostalgic. It's *perfect*.
+It's absurd. It's nostalgic. It's _perfect_.
 
-### 💥 Act III (Era 3) — *"The Dot-Com Bubble Burst"* (2000–2001)
+### 💥 Act III (Era 3) — _"The Dot-Com Bubble Burst"_ (2000–2001)
 
 The newspaper returns — but darker. Tilted headlines. Shattered layouts. The NASDAQ is in freefall. Pets.com is dead. But from the ashes, two names survive: **Amazon.com** and **eBay.com**. Their stories of resilience are told through chaotic, ink-stained columns.
 
-### 👥 Act IV (Era 4) — *"The Social Web"* (2004)
+### 👥 Act IV (Era 4) — _"The Social Web"_ (2004)
 
 A shift in the paradigm. The static web dies, and "Web 2.0" is born. Featuring a deep blue "CopyReveal" transition, this era introduces the protagonists of the new internet: Mark Zuckerberg, the Youtube Founders, and Jack Dorsey. Complete with a magical "Daily Prophet" moving photograph effect.
 
-### 👑 Act V (Era 5) — *"Digital Consolidation"* (2008–2016)
+### 👑 Act V (Era 5) — _"Digital Consolidation"_ (2008–2016)
 
 The empire building begins. A cinematic red timeline traces Facebook's aggressive acquisition of Instagram and WhatsApp, and their rejection by Snapchat. Featuring an animated SVG scroll-path, floating 3D timeline nodes, and a profound question on digital monopolies.
 
-### ⛓️ Act VI (Era 6) — *"The Decentralized Dream"* (2009–2021)
+### ⛓️ Act VI (Era 6) — _"The Decentralized Dream"_ (2009–2021)
 
 A stark Bitcoin-orange transition brings us to Web 3.0. The Genesis Block is mined by a ghost. Ethereum powers Smart Contracts. A massive surge in NFTs, featuring bored apes and crypto punks, culminating in Facebook's shocking rebrand to Meta.
 
-### 📉 Act VII (Era 7) — *"The Reckoning"* (2022–2026)
+### 📉 Act VII (Era 7) — _"The Reckoning"_ (2022–2026)
 
 History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. Meta Reality Labs torches $64 billion. The NFT market volume collapses 97%. The Meme Coin Graveyard leaves millions with worthless digital assets.
 
@@ -108,9 +109,6 @@ History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. 
 📦 History-of-Web/
 │
 ├── 📂 public/                          # Static assets served at root
-│   ├── 📂 cursor/                      # 🖱️ Authentic Win98 cursors
-│   │   ├── cursor.png                  #    Default arrow cursor
-│   │   └── pointer.png                 #    Hand pointer for links
 │   ├── 📂 fonts/
 │   │   └── OldNewspaperTypes.ttf       # 📰 Vintage newspaper typeface
 │   └── 📂 images/
@@ -157,7 +155,7 @@ History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. 
 │           ├── Era3_BubbleBurst.tsx    # Ch.3 — NASDAQ crash, dot-com graveyard,
 │                                       #         Amazon & eBay survival stories
 │           │
-│           ├── Era4_Web2.tsx           # Ch.4 — Web 2.0, Zuckerberg, YouTube, 
+│           ├── Era4_Web2.tsx           # Ch.4 — Web 2.0, Zuckerberg, YouTube,
 │           │                           #         Twitter, Daily Prophet video
 │           │
 │           ├── Era5_SocialMedia.tsx    # Ch.5 — Acquisitions timeline, animated SVG path
@@ -178,29 +176,29 @@ History repeats itself. The blood-red ink returns as the Web 3.0 bubble bursts. 
 
 ## ⚙️ The Tech Arsenal
 
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| **Framework** | Next.js 16 (App Router) | Server-side rendering, file-based routing |
-| **UI** | React 19 + TypeScript | Component architecture with full type safety |
-| **Styling** | Tailwind CSS v4 | Utility-first styling with custom design tokens |
-| **Animations** | GSAP 3 + ScrollTrigger | Timeline sequencing, scroll-driven reveals, 3D transforms |
-| **Scroll** | Lenis | Inertia-based smooth scrolling across all browsers |
-| **3D** | Three.js + React Three Fiber | WebGL-powered interactive 3D elements |
+| Layer          | Technology                           | Purpose                                                                 |
+| -------------- | ------------------------------------ | ----------------------------------------------------------------------- |
+| **Framework**  | Next.js 16 (App Router)              | Server-side rendering, file-based routing                               |
+| **UI**         | React 19 + TypeScript                | Component architecture with full type safety                            |
+| **Styling**    | Tailwind CSS v4                      | Utility-first styling with custom design tokens                         |
+| **Animations** | GSAP 3 + ScrollTrigger               | Timeline sequencing, scroll-driven reveals, 3D transforms               |
+| **Scroll**     | Lenis                                | Inertia-based smooth scrolling across all browsers                      |
+| **3D**         | Three.js + React Three Fiber         | WebGL-powered interactive 3D elements                                   |
 | **Typography** | Google Fonts + OldNewspaperTypes TTF | Cormorant Garamond (headlines), Inter (UI), OldNewspaperTypes (vintage) |
 
 ---
 
 ## 🪄 Signature Animations
 
-| Animation | Component | Description |
-|-----------|-----------|-------------|
-| **Unfurl** | `PageUnfurl.tsx` | 3-phase cinematic entry: loading counter → 3D paper pop-up → scroll-driven zoom to fullscreen |
-| **Block Reveal** | `CopyReveal.tsx` | Colored block sweeps across text, then shrinks to reveal — inspired by CodeGrid |
-| **Parallax Tilt** | `Tilt3D.tsx` | Mouse-tracking 3D perspective shift with optional glare overlay |
-| **SVG Path Draw** | `Era1_Arpanet.tsx` | Scroll-driven SVG stroke animation tracing the ARPANET node timeline |
-| **Character Cascade** | `Era1_Arpanet.tsx` | Each letter of "THE HYPERTEXT HERALD" animates individually with rotation + spring |
-| **Content Stagger** | `PageUnfurl.tsx` | Headlines, images, and paragraphs glide upward with cascading delays on load |
-| **Hit Counter** | `RetroWeb.tsx` | Live-incrementing visitor counter with green-on-black terminal aesthetic |
+| Animation             | Component          | Description                                                                                   |
+| --------------------- | ------------------ | --------------------------------------------------------------------------------------------- |
+| **Unfurl**            | `PageUnfurl.tsx`   | 3-phase cinematic entry: loading counter → 3D paper pop-up → scroll-driven zoom to fullscreen |
+| **Block Reveal**      | `CopyReveal.tsx`   | Colored block sweeps across text, then shrinks to reveal — inspired by CodeGrid               |
+| **Parallax Tilt**     | `Tilt3D.tsx`       | Mouse-tracking 3D perspective shift with optional glare overlay                               |
+| **SVG Path Draw**     | `Era1_Arpanet.tsx` | Scroll-driven SVG stroke animation tracing the ARPANET node timeline                          |
+| **Character Cascade** | `Era1_Arpanet.tsx` | Each letter of "THE HYPERTEXT HERALD" animates individually with rotation + spring            |
+| **Content Stagger**   | `PageUnfurl.tsx`   | Headlines, images, and paragraphs glide upward with cascading delays on load                  |
+| **Hit Counter**       | `RetroWeb.tsx`     | Live-incrementing visitor counter with green-on-black terminal aesthetic                      |
 
 ---
 
@@ -228,19 +226,21 @@ Open **[http://localhost:3000](http://localhost:3000)** and let the newspaper un
 
 <div align="center">
 
-### *"Breathing Soul Into The Broadsheet"*
-*Before the internet, the world connected through ink and paper. We are bringing that soul back to the digital age.*
+### _"Breathing Soul Into The Broadsheet"_
+
+_Before the internet, the world connected through ink and paper. We are bringing that soul back to the digital age._
 
 </div>
 
 Before the web, newspapers and printed articles were our primary vessels of human communication—tangible artifacts of history as it happened. **The Frontend Odyssey** takes this traditional, tactile medium and injects it with depth, movement, and soul.
 
 By employing bleeding-edge web technology, we've made the static broadsheet feel alive:
+
 - **Depth & Perspective:** Interactive 3D tilt cards (`Tilt3D.tsx`) blur the line between screen and paper, reacting to the reader's every move.
 - **Living History:** Animated SVG timelines trace the actual growth of the network and corporate acquisitions, drawing the story as you scroll.
 - **Cinematic Motion:** Videos embed seamlessly into custom "Daily Prophet" moving photographs, while headlines and paragraphs reveal themselves precisely like a storyteller pausing for breath.
 
-It focuses less on the dry, technical facts of the web, and more on how these shifts made us *feel*. It is a love letter to the past, built entirely with the tools of the future.
+It focuses less on the dry, technical facts of the web, and more on how these shifts made us _feel_. It is a love letter to the past, built entirely with the tools of the future.
 
 ---
 
@@ -250,8 +250,8 @@ It focuses less on the dry, technical facts of the web, and more on how these sh
 
 <br/>
 
-*The internet began with two letters and a crash.*
-*This project is our love letter to every line of code that came after.*
+_The internet began with two letters and a crash._
+_This project is our love letter to every line of code that came after._
 
 <br/>
 

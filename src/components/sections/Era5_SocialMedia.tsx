@@ -37,6 +37,8 @@ export default function Era5_SocialMedia() {
 
       // SVG acquisition timeline draw
       setTimeout(() => {
+        const isTablet = window.innerWidth < 1280;
+        
         if (svgLineRef.current) {
           const length = svgLineRef.current.getTotalLength();
           gsap.set(svgLineRef.current, {
@@ -48,28 +50,28 @@ export default function Era5_SocialMedia() {
             ease: "none",
             scrollTrigger: {
               trigger: ".era5-timeline",
-              start: "top 80%",
-              end: "bottom 60%",
-              scrub: 0.5,
+              start: isTablet ? "top 85%" : "top 80%",
+              end: isTablet ? "bottom 95%" : "bottom 70%",
+              scrub: isTablet ? 0.1 : 0.3,
             },
           });
         }
 
-        // Timeline nodes pop
+        // Timeline nodes pop — synced with SVG line
         gsap.from(".era5-node", {
           scale: 0,
           opacity: 0,
-          duration: 0.8,
+          duration: isTablet ? 0.4 : 0.8,
           ease: "back.out(2)",
-          stagger: 0.3,
+          stagger: isTablet ? 0.15 : 0.3,
           scrollTrigger: {
             trigger: ".era5-timeline",
-            start: "top 70%",
-            end: "bottom 60%",
-            scrub: 1,
+            start: isTablet ? "top 75%" : "top 60%",
+            end: isTablet ? "bottom 85%" : "bottom 60%",
+            scrub: isTablet ? 0.5 : 1,
           },
         });
-      }, 150);
+      }, 100);
 
     }, sectionRef);
 
@@ -122,7 +124,16 @@ export default function Era5_SocialMedia() {
           <div className="w-full mt-8 flex justify-between items-center border-y-[4px] border-ink py-3 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.2em] px-4 era5-reveal">
             <span>Vol. 5 • 2008–2016</span>
             <span className="hidden md:inline-block outline-text text-center text-accent">THE ACQUISITION CHRONICLES</span>
-            <Tilt3D intensity={15}><button className="text-paper bg-ink px-4 py-1 hover:bg-accent transition-colors" data-cursor="hover">Share</button></Tilt3D>
+            <button 
+              onClick={() => {
+                if (typeof navigator !== 'undefined' && navigator.share) navigator.share({ title: 'The Hypertext Herald', url: window.location.href }).catch(() => {});
+                else if (typeof navigator !== 'undefined') { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
+              }}
+              className="text-paper bg-ink px-4 py-1 hover:bg-[#cc0000] transition-colors" 
+              data-cursor="hover"
+            >
+              Share
+            </button>
           </div>
         </header>
 
@@ -130,7 +141,7 @@ export default function Era5_SocialMedia() {
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-16 relative z-10 px-4">
 
           {/* CENTER COLUMN: The Rise */}
-          <div className="md:col-span-12 lg:col-span-8 flex flex-col font-newspaper text-xl leading-relaxed">
+          <div className="md:col-span-12 xl:col-span-8 flex flex-col font-newspaper text-xl leading-relaxed">
             <h2 className="text-5xl md:text-[5rem] font-black uppercase leading-[0.85] tracking-tighter border-b-4 border-ink pb-4 mb-6 era5-reveal">
               The Youngest<br />Billionaire
             </h2>
@@ -153,7 +164,7 @@ export default function Era5_SocialMedia() {
                 In <span className="text-accent font-bold">2008</span>, at the age of just <span className="text-accent font-bold">23</span>, Mark Zuckerberg became the world&apos;s youngest self-made billionaire. Facebook had exploded from a college network to a global platform with over <span className="text-accent font-bold">100 million</span> active users.
               </p>
               <p className="mt-4 md:mt-0">
-                The platform&apos;s valuation soared to <span className="text-accent font-bold">$15 billion</span> after Microsoft invested $240 million for a 1.6% stake. What started in a Harvard dorm room was now worth more than most Fortune 500 companies. Zuckerberg wasn&apos;t just building a social network—he was building an empire.
+                The platform&apos;s valuation soared to <span className="text-accent font-bold">$15 billion</span>{" "}after Microsoft invested $240 million for a 1.6% stake. What started in a Harvard dorm room was now worth more than most Fortune 500 companies. Zuckerberg wasn&apos;t just building a social network—he was building an empire.
               </p>
               <p className="mt-4 font-bold border-l-4 border-accent pl-4 italic">
                 &quot;In a world that's changing really quickly, the only strategy that is guaranteed to fail is not taking risks.&quot; — Mark Zuckerberg
@@ -162,20 +173,20 @@ export default function Era5_SocialMedia() {
           </div>
 
           {/* SIDEBAR: The Acquisition Timeline */}
-          <div className="md:col-span-12 lg:col-span-4 flex flex-col gap-8 border-t-[4px] lg:border-t-0 lg:border-l-[4px] border-ink pt-12 lg:pt-0 lg:pl-10 era5-timeline">
+          <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-8 border-t-[4px] xl:border-t-0 xl:border-l-[4px] border-ink pt-12 xl:pt-0 xl:pl-10 era5-timeline">
 
             <Tilt3D intensity={8} glare={false}>
-              <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-4 rotate-2 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg era5-reveal" data-cursor="hover">
+              <h3 className="text-xl md:text-2xl font-black uppercase text-center tracking-widest bg-ink text-paper py-4 px-2 mb-4 md:rotate-2 hover:rotate-0 transition-all duration-300 ease-in-out cursor-default shadow-lg era5-reveal" data-cursor="hover">
                 The Acquisitions
               </h3>
             </Tilt3D>
 
             <div className="relative pl-6">
               {/* Animated SVG line */}
-              <svg className="absolute left-[5px] top-[24px] bottom-0 w-[40px] pointer-events-none overflow-visible" style={{ height: "calc(100% - 24px)" }} preserveAspectRatio="none">
+              <svg className="absolute left-[5px] top-0 bottom-0 w-[40px] h-full pointer-events-none overflow-visible" viewBox="0 -5 40 610" preserveAspectRatio="none">
                 <path
                   ref={svgLineRef}
-                  d="M0,0 C20,80 -20,120 0,200 C20,280 -20,320 0,400 C20,480 -20,520 0,600"
+                  d="M0,0 C20,60 -20,90 0,150 C20,210 -20,240 0,300 C20,360 -20,390 0,450 C20,510 -20,540 0,600"
                   fill="none"
                   stroke="#cc0000"
                   strokeWidth="3"
@@ -189,7 +200,7 @@ export default function Era5_SocialMedia() {
                 {/* 2012: Instagram */}
                 <li className="flex flex-col relative z-10 pl-6 group era5-reveal">
                   <div className="era5-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full shadow-[0_0_15px_rgba(204,0,0,0.4)]"></div>
-                  <span className="font-sans font-black text-accent text-3xl tracking-widest mb-1">2012</span>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">2012</span>
                   <span className="text-lg leading-snug font-bold">Instagram acquired for <span className="text-accent">$1 Billion</span></span>
                   <span className="text-base leading-snug mt-1 opacity-80">13 employees. 30 million users. Facebook saw the future of mobile photo-sharing and struck before anyone else could.</span>
                 </li>
@@ -197,7 +208,7 @@ export default function Era5_SocialMedia() {
                 {/* 2013: Snapchat Rejection */}
                 <li className="flex flex-col relative z-10 pl-6 group era5-reveal">
                   <div className="era5-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full"></div>
-                  <span className="font-sans font-black text-ink text-3xl tracking-widest mb-1">2013</span>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">2013</span>
                   <span className="text-lg leading-snug font-bold">Snapchat rejects <span className="text-accent">$3 Billion</span> offer</span>
                   <span className="text-base leading-snug mt-1 opacity-80">Evan Spiegel, just 23 years old, turned down Zuckerberg. The X-factor? Disappearing &quot;Stories&quot;. Facebook would never forget this rejection.</span>
                 </li>
@@ -205,7 +216,7 @@ export default function Era5_SocialMedia() {
                 {/* 2014: WhatsApp */}
                 <li className="flex flex-col relative z-10 pl-6 group era5-reveal">
                   <div className="era5-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full shadow-[0_0_15px_#f25042]"></div>
-                  <span className="font-sans font-black text-accent text-3xl tracking-widest mb-1">2014</span>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">2014</span>
                   <span className="text-lg leading-snug font-bold">WhatsApp acquired for <span className="text-accent">$19 Billion</span></span>
                   <span className="text-base leading-snug mt-1 opacity-80">The largest tech acquisition in history at the time. 450 million users. $4B cash + $12B stock + $3B restricted units. The messaging wars were won overnight.</span>
                 </li>
@@ -213,7 +224,7 @@ export default function Era5_SocialMedia() {
                 {/* 2016: The Clone Wars */}
                 <li className="flex flex-col relative z-10 pl-6 group era5-reveal">
                   <div className="era5-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full"></div>
-                  <span className="font-sans font-black text-accent text-3xl tracking-widest mb-1">2016</span>
+                  <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">2016</span>
                   <span className="text-lg leading-snug font-bold">Instagram Stories launch</span>
                   <span className="text-base leading-snug mt-1 opacity-80">If you can&apos;t buy them, copy them. Instagram CEO Kevin Systrom openly admitted copying Snapchat&apos;s Stories. Within a year, Instagram Stories surpassed Snapchat&apos;s daily users.</span>
                 </li>
@@ -226,7 +237,7 @@ export default function Era5_SocialMedia() {
         <div className="w-full max-w-7xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-16 relative z-10 px-4">
 
           {/* Instagram Acquisition Image */}
-          <div className="md:col-span-6 lg:col-span-4 flex flex-col gap-4 era5-reveal">
+          <div className="md:col-span-6 xl:col-span-4 flex flex-col gap-4 era5-reveal">
             <h3 className="font-serif text-3xl font-black uppercase leading-none border-b-[2px] border-ink pb-2">
               The Instagram<br />Deal
             </h3>
@@ -248,7 +259,7 @@ export default function Era5_SocialMedia() {
           </div>
 
           {/* Snapchat Rejection */}
-          <div className="md:col-span-6 lg:col-span-4 flex flex-col gap-4 era5-reveal">
+          <div className="md:col-span-6 xl:col-span-4 flex flex-col gap-4 era5-reveal">
             <h3 className="font-serif text-3xl font-black uppercase leading-none border-b-[2px] border-ink pb-2">
               The Snapchat<br />Rejection
             </h3>
@@ -270,7 +281,7 @@ export default function Era5_SocialMedia() {
           </div>
 
           {/* WhatsApp Mega-Deal */}
-          <div className="md:col-span-12 lg:col-span-4 flex flex-col gap-4 era5-reveal">
+          <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-4 era5-reveal">
             <h3 className="font-serif text-3xl font-black uppercase leading-none border-b-[2px] border-ink pb-2">
               The WhatsApp<br />Mega-Deal
             </h3>

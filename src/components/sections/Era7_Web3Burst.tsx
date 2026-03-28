@@ -45,7 +45,7 @@ export default function Era7_Web3Burst() {
       {/* ── CINEMATIC TRANSITION ── */}
       <div className="w-full min-h-[120vh] bg-ink flex flex-col items-center justify-center px-4 md:px-12 relative z-10 border-x-[8px] md:border-x-[40px] border-ink pb-24">
         <div className="w-full max-w-5xl z-10 text-center flex flex-col gap-6 items-center">
-          <CopyReveal blockColor="#DC2626" stagger={0.15} duration={1}>
+          <CopyReveal blockColor="#cc0000" stagger={0.15} duration={1}>
             <h2
               className="text-[20vw] md:text-[14vw] uppercase text-paper leading-[0.75] tracking-tighter"
               style={{ fontFamily: "'OldNewspaperTypes', serif", fontWeight: "normal" }}
@@ -54,9 +54,9 @@ export default function Era7_Web3Burst() {
             </h2>
           </CopyReveal>
 
-          <div className="w-full h-[2px] bg-[#DC2626]/50 my-2"></div>
+          <div className="w-full h-[2px] bg-[#cc0000]/50 my-2"></div>
 
-          <CopyReveal blockColor="#DC2626" stagger={0.1} duration={0.8} delay={0.4}>
+          <CopyReveal blockColor="#cc0000" stagger={0.1} duration={0.8} delay={0.4}>
             <h3
               className="text-[8vw] md:text-[5vw] uppercase text-zinc-400 leading-none tracking-widest pl-2"
               style={{ fontFamily: "'OldNewspaperTypes', serif", fontWeight: "normal" }}
@@ -83,7 +83,16 @@ export default function Era7_Web3Burst() {
           <div className="w-full mt-8 flex justify-between items-center border-y-[4px] border-ink py-3 font-sans text-[10px] md:text-sm uppercase font-bold tracking-[0.2em] px-4 era7-reveal">
             <span>Vol. 7 • 2022–2026</span>
             <span className="hidden md:inline-block outline-text text-center text-[#DC2626]">HISTORY REPEATS ITSELF</span>
-            <Tilt3D intensity={15}><button className="text-paper bg-ink px-4 py-1 hover:bg-[#DC2626] transition-colors" data-cursor="hover">Share</button></Tilt3D>
+            <button 
+              onClick={() => {
+                if (typeof navigator !== 'undefined' && navigator.share) navigator.share({ title: 'The Hypertext Herald', url: window.location.href }).catch(() => {});
+                else if (typeof navigator !== 'undefined') { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
+              }}
+              className="text-paper bg-ink px-4 py-1 hover:bg-[#cc0000] transition-colors" 
+              data-cursor="hover"
+            >
+              Share
+            </button>
           </div>
         </header>
 
@@ -91,7 +100,7 @@ export default function Era7_Web3Burst() {
         <div className="w-full max-w-7xl mx-auto grid grid-cols-12 gap-6 md:gap-10 px-4 md:px-0">
 
           {/* LEFT COLUMN: NFT Crash & Meta Losses */}
-          <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
+          <div className="col-span-12 xl:col-span-8 flex flex-col gap-6">
 
             <h2 className="font-serif text-4xl md:text-5xl font-black uppercase leading-[1.05] border-b-[4px] border-ink pb-4 era7-reveal">
               The $64 Billion<br/>Bonfire
@@ -187,7 +196,7 @@ export default function Era7_Web3Burst() {
           </div>
 
           {/* SIDEBAR: Sandbox & NFT Crash */}
-          <div className="col-span-12 lg:col-span-4 flex flex-col gap-12 border-t-[4px] lg:border-t-0 lg:border-l-[4px] border-ink pt-12 lg:pt-0 lg:pl-10">
+          <div className="col-span-12 xl:col-span-4 flex flex-col gap-12 border-t-[4px] xl:border-t-0 xl:border-l-[4px] border-ink pt-12 xl:pt-0 xl:pl-10">
 
             {/* NFT Crash */}
             <div className="flex flex-col gap-4 era7-reveal">

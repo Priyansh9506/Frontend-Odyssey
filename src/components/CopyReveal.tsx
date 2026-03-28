@@ -23,7 +23,7 @@ export default function CopyReveal({
   children,
   animateOnScroll = true,
   delay = 0,
-  blockColor = "#000",
+  blockColor = "#cc0000",
   stagger = 0.15,
   duration = 0.75,
 }: CopyRevealProps) {

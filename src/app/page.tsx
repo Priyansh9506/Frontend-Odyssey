@@ -6,20 +6,21 @@ import Era4_Web2 from "@/components/sections/Era4_Web2";
 import Era5_SocialMedia from "@/components/sections/Era5_SocialMedia";
 import Era6_Web3 from "@/components/sections/Era6_Web3";
 import Era7_Web3Burst from "@/components/sections/Era7_Web3Burst";
+import TheEditorsDesk from "@/components/sections/TheEditorsDesk";
 import PageUnfurl from "@/components/PageUnfurl";
 
 const Home = () => {
   return (
     <>
       <PageUnfurl>
-        <main className="relative w-full flex flex-col items-center">
+        <main className="relative w-full flex flex-col items-center overflow-x-hidden">
           {/* Hero / Era 1: ARPANET to WWW */}
           <Era1_Arpanet />
         </main>
       </PageUnfurl>
 
       {/* Subsequent Eras run natively outside the PageUnfurl scope */}
-      <div className="relative w-full flex flex-col items-center z-20">
+      <div className="relative w-full flex flex-col items-center z-20 overflow-x-hidden">
         {/* Era 2: The World Wide Web & Dot-Com Boom */}
         <Era2_WWW />
 
@@ -40,6 +41,9 @@ const Home = () => {
 
         {/* Era 7: The Web 3.0 Bubble Burst */}
         <Era7_Web3Burst />
+
+        {/* The Back Page / Credits / About */}
+        <TheEditorsDesk />
       </div>
     </>
   );
