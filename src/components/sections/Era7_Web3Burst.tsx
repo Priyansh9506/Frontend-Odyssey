@@ -275,7 +275,7 @@ export default function Era7_Web3Burst() {
 
         {/* End of Volume 7 Marker */}
         <div className="w-full max-w-7xl mx-auto border-t-[12px] border-ink mt-24 md:mt-32 mb-16 relative era7-reveal">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-8 text-ink font-sans font-black tracking-[0.5em] text-sm py-2 border-4 border-ink whitespace-nowrap">END OF VOL. 7</div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-8 text-ink font-sans font-black tracking-[0.5em] text-sm py-2 border-4 border-ink whitespace-nowrap text-center"><span className="ml-[0.5em]">END OF VOL. 7</span></div>
         </div>
 
       </div>

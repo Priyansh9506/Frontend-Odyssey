@@ -23,19 +23,42 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   // ── Phase 1: Setup initial state & loading counter ─────────
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    const isMobile = window.innerWidth < 1024;
 
-    // Paper starts hidden, pushed down and tilted
-    gsap.set(paperRef.current, {
-      scale: 0.82,
-      rotateX: 18,
-      y: 120,
-      opacity: 0,
-      borderRadius: "24px",
-      boxShadow: "0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04)",
-    });
+    if (isMobile) {
+      // Clear GPU/overflow styles so page scrolls freely on mobile/tablet natively (just like cc53b11)
+      if (outerRef.current) {
+        outerRef.current.style.overflow = "visible";
+        outerRef.current.style.perspective = "none";
+      }
+      if (paperRef.current) {
+        paperRef.current.style.transform = "none";
+        paperRef.current.style.willChange = "auto";
+      }
+      const darkBg = document.querySelector('.unfurl-dark-bg') as HTMLElement;
+      if (darkBg) darkBg.style.display = "none";
+    } else {
+      // Paper starts hidden, pushed down and tilted
+      gsap.set(paperRef.current, {
+        scale: 0.82,
+        rotateX: 18,
+        y: 120,
+        opacity: 0,
+        borderRadius: "24px",
+        boxShadow: "0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04)",
+      });
+    }
 
     const tl = gsap.timeline({
-      onComplete: () => setPhase("popup"),
+      onComplete: () => {
+        if (isMobile) {
+          // If mobile, go directly to ready. Phase 2 the tilt animation is entirely skipped.
+          setPhase("ready");
+          document.body.style.overflow = "";
+        } else {
+          setPhase("popup");
+        }
+      },
     });
 
     // 2026 to 1969 counter animation
@@ -65,6 +88,12 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       "-=0.35"
     );
 
+    // If mobile, gracefully fade out the black loader screen here, since Phase 2 won't run.
+    if (isMobile) {
+      tl.to(loaderRef.current, { opacity: 0, duration: 0.6, ease: "power2.inOut" }, "-=0.2");
+      tl.set(loaderRef.current, { display: "none" });
+    }
+
     return () => {
       tl.kill();
     };
@@ -73,6 +102,7 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   // ── Phase 2: Pop-up reveal ──────────────────────────────
   useEffect(() => {
     if (phase !== "popup") return;
+    // (This only runs on >=1024 devices because of the check above)
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -116,6 +146,20 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (phase !== "ready") return;
 
+    if (window.innerWidth < 1024) {
+      // Make absolutely sure we do nothing on mobile so it doesn't hijack scrollTrigger animations inside the children!
+      if (outerRef.current) {
+        outerRef.current.style.overflow = "visible";
+        outerRef.current.style.perspective = "none";
+      }
+      if (paperRef.current) {
+        paperRef.current.style.transform = "none";
+        paperRef.current.style.willChange = "auto";
+      }
+      const darkBg = document.querySelector('.unfurl-dark-bg') as HTMLElement;
+      if (darkBg) darkBg.style.display = "none";
+      return;
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -178,7 +222,9 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
         {phase === "loading" && (
           <div className="loader-content flex flex-col items-center gap-4">
             <h2 className="font-serif text-2xl uppercase tracking-[0.3em] opacity-50 text-center">
-              The Hypertext Herald
+              <span className="block md:inline">The</span>{" "}
+              <span className="block md:inline">Hypertext</span>{" "}
+              <span className="block md:inline">Herald</span>
             </h2>
             <div 
               ref={counterTextRef}
