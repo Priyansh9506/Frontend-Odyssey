@@ -149,7 +149,8 @@ export default function Era4_Web2() {
                     autoPlay 
                     loop 
                     muted 
-                    playsInline 
+                    playsInline
+                    preload="auto"
                     className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                   >
                     <source src="/video/mark-zukerberg-giving-demo.mp4" type="video/mp4" />

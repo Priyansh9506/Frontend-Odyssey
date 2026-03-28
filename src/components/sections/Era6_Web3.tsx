@@ -287,6 +287,7 @@ export default function Era6_Web3() {
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                   >
                     <source src="/video/Meta-rebrand.mp4" type="video/mp4" />

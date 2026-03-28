@@ -151,7 +151,7 @@ export default function Era5_SocialMedia() {
                 <img
                   src="/images/facebook-popularity.png"
                   alt="Facebook's explosive popularity"
-                  className="w-full min-h-[300px] object-cover contrast-125 group-hover:scale-105 transition-all duration-700"
+                  className="w-full min-h-[300px] object-cover object-[70%_center] md:object-center contrast-125 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute bottom-0 left-0 bg-ink text-paper font-sans text-xs uppercase font-bold tracking-widest px-4 py-2">
                   Facebook&apos;s meteoric rise, 2004–2008

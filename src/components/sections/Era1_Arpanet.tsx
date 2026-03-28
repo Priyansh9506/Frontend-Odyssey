@@ -124,7 +124,9 @@ const Era1_Arpanet = () => {
           className="font-serif text-[13vw] md:text-[11vw] leading-[0.8] uppercase font-bold tracking-tighter text-ink text-center flex flex-col w-full px-2 md:px-4"
         >
           <div className="w-full text-center border-b-[2px] md:border-b-4 border-ink pb-2 md:pb-4 mb-2 md:mb-4" data-cursor="hover">
-            <SplitTextChars text="The Hypertext" />
+            <span className="block md:inline"><SplitTextChars text="The" /></span>
+            <span className="hidden md:inline">&nbsp;</span>
+            <span className="block md:inline"><SplitTextChars text="Hypertext" /></span>
           </div>
           <div className="text-[#DC2626]" data-cursor="hover">
             <SplitTextChars text="Herald" />

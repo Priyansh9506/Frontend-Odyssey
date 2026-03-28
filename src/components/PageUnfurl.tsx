@@ -26,6 +26,15 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
       if (loaderRef.current) loaderRef.current.style.display = "none";
       const darkBg = document.querySelector('.unfurl-dark-bg') as HTMLElement;
       if (darkBg) darkBg.style.display = "none";
+      // Clear GPU/overflow styles so page scrolls freely on mobile/tablet
+      if (outerRef.current) {
+        outerRef.current.style.overflow = "visible";
+        outerRef.current.style.perspective = "none";
+      }
+      if (paperRef.current) {
+        paperRef.current.style.transform = "none";
+        paperRef.current.style.willChange = "auto";
+      }
       setPhase("ready");
       return;
     }
@@ -123,7 +132,20 @@ const PageUnfurl = ({ children }: { children: React.ReactNode }) => {
   // ── Phase 3: Scroll-driven unroll ───────────────────────
   useEffect(() => {
     if (phase !== "ready") return;
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth < 768) {
+      // Still clean up overflow so page scrolls freely
+      if (outerRef.current) {
+        outerRef.current.style.overflow = "visible";
+        outerRef.current.style.perspective = "none";
+      }
+      if (paperRef.current) {
+        paperRef.current.style.transform = "none";
+        paperRef.current.style.willChange = "auto";
+      }
+      const darkBg = document.querySelector('.unfurl-dark-bg') as HTMLElement;
+      if (darkBg) darkBg.style.display = "none";
+      return;
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {

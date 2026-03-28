@@ -60,8 +60,6 @@ const RootLayout = ({
     >
       <head>
         <link rel="preload" href="/fonts/OldNewspaperTypes.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/video/mark-zukerberg-giving-demo.mp4" as="video" type="video/mp4" />
-        <link rel="preload" href="/video/Meta-rebrand.mp4" as="video" type="video/mp4" />
       </head>
       <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent selection:text-white">
         <SmoothScrolling>{children}</SmoothScrolling>
