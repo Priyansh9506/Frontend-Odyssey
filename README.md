@@ -81,6 +81,27 @@ The entire design language shifts. You're inside an authentic **1996 GeoCities h
 
 It's absurd. It's nostalgic. It's _perfect_.
 
+#### 📱 Adaptive Device Experience
+
+The Retro Break isn't just a visual gag — it's **device-aware**. Mobile and tablet users are greeted by a period-accurate Windows 95 error dialog declaring their futuristic device "unsupported," while desktop users get the full Netscape Navigator simulation.
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><strong>📱 Mobile / Tablet</strong></td>
+<td align="center"><strong>🖥️ Desktop</strong></td>
+</tr>
+<tr>
+<td><img src="public/images/phone-tablet-RetroWeb.jpeg" alt="RetroWeb on Phone/Tablet — Windows 95 Unsupported Device Error" width="300" /></td>
+<td><img src="public/images/desktop-RetroWeb.png" alt="RetroWeb on Desktop — Full Netscape Navigator Simulation" width="450" /></td>
+</tr>
+<tr>
+<td align="center"><em>Win95 error: "These futuristic devices<br/>will not be invented for another decade!"</em></td>
+<td align="center"><em>Full Netscape Navigator homepage with<br/>hit counter, guestbook, and skull GIFs</em></td>
+</tr>
+</table>
+</div>
+
 ### 💥 Act III (Era 3) — _"The Dot-Com Bubble Burst"_ (2000–2001)
 
 The newspaper returns — but darker. Tilted headlines. Shattered layouts. The NASDAQ is in freefall. Pets.com is dead. But from the ashes, two names survive: **Amazon.com** and **eBay.com**. Their stories of resilience are told through chaotic, ink-stained columns.
