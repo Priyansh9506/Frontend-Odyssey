@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopyReveal from "@/components/CopyReveal";
 import Tilt3D from "@/components/Tilt3D";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,8 +15,8 @@ export default function Era7_Web3Burst() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.utils.toArray(".era7-reveal").forEach((elem: any) => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".era7-reveal").forEach((elem) => {
         gsap.fromTo(
           elem,
           { y: 60, opacity: 0, rotateX: 10 },
@@ -108,6 +109,7 @@ export default function Era7_Web3Burst() {
 
             <Tilt3D intensity={8}>
               <div className="w-full relative border-[2px] border-ink overflow-hidden group era7-reveal">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/meta-80-billion-loss.png"
                   alt="Meta Reality Labs Losses"
@@ -136,6 +138,7 @@ export default function Era7_Web3Burst() {
               <div className="w-full">
                 <Tilt3D intensity={5}>
                   <div className="w-full border-[2px] border-ink overflow-hidden group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/meta-horizon.png"
                       alt="Meta Horizon Worlds"
@@ -180,6 +183,7 @@ export default function Era7_Web3Burst() {
               <div className="w-full">
                 <Tilt3D intensity={5}>
                   <div className="w-full relative border-[2px] border-ink overflow-hidden group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/meme-coin.png"
                       alt="Meme Coins"
@@ -237,6 +241,7 @@ export default function Era7_Web3Burst() {
 
               <Tilt3D intensity={12}>
                 <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/sandbox-metaverse.png"
                     alt="The Sandbox Metaverse"

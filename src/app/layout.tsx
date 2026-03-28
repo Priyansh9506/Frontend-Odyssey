@@ -57,11 +57,12 @@ const RootLayout = ({
     <html
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <link rel="preload" href="/fonts/OldNewspaperTypes.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </head>
-      <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent selection:text-white">
+      <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent selection:text-white" suppressHydrationWarning>
         <SmoothScrolling>{children}</SmoothScrolling>
       </body>
     </html>

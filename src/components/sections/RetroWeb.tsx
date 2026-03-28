@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Image from "next/image";
 
 export default function RetroWeb() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,7 +59,7 @@ export default function RetroWeb() {
           <div>
             <p className="font-bold text-lg md:text-2xl mb-2 md:mb-3">UNSUPPORTED DEVICE</p>
             <p className="text-sm md:text-base">
-              Our servers indicate you are attempting to access the World Wide Web from a "mobile phone" or "tablet".
+              Our servers indicate you are attempting to access the World Wide Web from a &quot;mobile phone&quot; or &quot;tablet&quot;.
             </p>
             <p className="text-sm md:text-base mt-3 md:mt-4 font-bold text-red-600">
               * CRITICAL: These futuristic devices will not be invented for another decade!
@@ -104,11 +105,13 @@ export default function RetroWeb() {
           
           <div className="text-center w-full relative">
             <div className="flex justify-center items-center gap-4 mb-4 retro-element">
-              <img src="/images/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated inline-block" />
               <h1 className="text-3xl md:text-5xl font-bold text-[#0000ff] underline">
                 Welcome to my Home Page!
               </h1>
-              <img src="/images/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated" style={{ transform: "scaleX(-1)" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/giphy.gif" alt="Spinning 3D Skull" className="w-12 md:w-16 h-12 md:h-16 pixelated inline-block" style={{ transform: "scaleX(-1)" }} />
             </div>
             
             {/* Authentic HTML Marquee implementation using CSS animation fallback */}
@@ -125,7 +128,7 @@ export default function RetroWeb() {
                 Hi! Welcome to my slice of the internet. The <strong>World Wide Web</strong> is growing so fast, and I wanted to make sure I claimed my domain before it was too late! 
               </p>
               <p className="mb-4">
-                Did you hear about this new site called <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" className="text-[#0000ff] underline hover:text-purple-600">Amazon.com</a>? They sell books online, but honestly I don't see why I wouldn't just go to the bookstore. 
+                Did you hear about this new site called <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" className="text-[#0000ff] underline hover:text-purple-600">Amazon.com</a>? They sell books online, but honestly I don&apos;t see why I wouldn&apos;t just go to the bookstore. 
               </p>
               
               <div className="border-[outset] border-4 border-[#c0c0c0] bg-[#e0e0e0] p-4 text-center my-6 relative">
@@ -137,6 +140,7 @@ export default function RetroWeb() {
                   <li>Added sick MIDI background music (currently playing).</li>
                   <li className="flex items-center justify-start gap-2 mt-2">
                     Check out my cool 3D spinning skull GIF! 
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/images/giphy.gif" className="w-6 h-6 inline-block" alt="skull" />
                   </li>
                 </ul>

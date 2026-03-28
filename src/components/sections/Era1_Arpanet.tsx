@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Tilt3D from "@/components/Tilt3D";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,16 +158,16 @@ const Era1_Arpanet = () => {
             A Network is Born in the Shadows
           </h2>
           <p className="first-letter:text-[4rem] md:first-letter:text-[7rem] first-letter:font-black first-letter:float-left first-letter:mr-3 md:first-letter:mr-4 first-letter:mt-1 md:first-letter:mt-2 first-letter:leading-[0.75] text-justify article-reveal">
-            At 10:30 PM on October 29, 1969, history was quietly made. A computer at UCLA's Network Measurement Center attempted to send a message to the Stanford Research Institute across the newly formed ARPANET.
+            At 10:30 PM on October 29, 1969, history was quietly made. A computer at UCLA&apos;s Network Measurement Center attempted to send a message to the Stanford Research Institute across the newly formed ARPANET.
           </p>
           <p className="text-justify article-reveal">
-            The intended message was "LOGIN". The system spectacularly crashed after transmitting just two letters: <strong>"LO"</strong>. Yet, this humble failure marked the successful deployment of packet-switching technology—a breakthrough conceptualized by Paul Baran and Donald Davies that would eventually connect humanity across a unified digital plane.
+            The intended message was &quot;LOGIN&quot;. The system spectacularly crashed after transmitting just two letters: <strong>&quot;LO&quot;</strong>. Yet, this humble failure marked the successful deployment of packet-switching technology—a breakthrough conceptualized by Paul Baran and Donald Davies that would eventually connect humanity across a unified digital plane.
           </p>
           
           <Tilt3D intensity={6}>
             <div className="mt-4 md:mt-8 p-6 md:p-8 bg-ink text-paper font-sans text-xs md:text-sm font-bold uppercase tracking-widest article-reveal relative group overflow-hidden cursor-pointer" data-cursor="hover">
               <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
-              <p className="relative z-10">"We were supposed to transmit 'LOGIN'. We typed the L, and they got the L. We typed the O, and they got the O. Then we typed the G, and the system crashed."</p>
+              <p className="relative z-10">&quot;We were supposed to transmit &apos;LOGIN&apos;. We typed the L, and they got the L. We typed the O, and they got the O. Then we typed the G, and the system crashed.&quot;</p>
               <br/><br/><span className="text-zinc-400 relative z-10">Leonard Kleinrock</span>
             </div>
           </Tilt3D>
@@ -179,7 +180,7 @@ const Era1_Arpanet = () => {
             data-cursor="hover"
           >
             <div 
-              className="w-full h-full bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"
+              className="w-full h-full bg-[url('/images/imp-processor.png')] bg-cover bg-center"
             ></div>
             {/* Vintage Scanline Overlay */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPHBhdGggZD0iTTAgMEg0djFIMHoiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIi8+Cjwvc3ZnPg==')] pointer-events-none opacity-30 mix-blend-overlay"></div>
@@ -190,10 +191,11 @@ const Era1_Arpanet = () => {
           
           <div className="w-full mt-10 text-justify font-newspaper text-lg leading-relaxed article-reveal">
             <h3 className="text-3xl font-bold uppercase mb-4 leading-none bg-ink text-paper inline-block px-3 py-1">The @ Symbol Arrives</h3>
-            <p>In 1971, Ray Tomlinson developed the first network email system. To distinguish the user from the host computer, he elegantly chose the "@" symbol. Electronic mail rapidly became the network's most essential application, turning data lines into lifelines of communication.</p>
+            <p>In 1971, Ray Tomlinson developed the first network email system. To distinguish the user from the host computer, he elegantly chose the &quot;@&quot; symbol. Electronic mail rapidly became the network&apos;s most essential application, turning data lines into lifelines of communication.</p>
           </div>
           
           <div className="w-full mt-6 md:mt-8 overflow-hidden border-[2px] md:border-[4px] border-ink article-reveal bg-zinc-200" data-cursor="hover">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src="/images/email.png" 
               alt="The first network email system" 
@@ -230,13 +232,13 @@ const Era1_Arpanet = () => {
                 <li className="flex flex-col relative z-10 pl-6 group">
                   <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full"></div>
                   <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1969</span>
-                  <span className="text-lg leading-snug">First ARPANET node connected. "LO" message sent.</span>
+                  <span className="text-lg leading-snug">First ARPANET node connected. &quot;LO&quot; message sent.</span>
                 </li>
                 
                 <li className="flex flex-col relative z-10 pl-6 group">
                   <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-accent border-[3px] border-paper rounded-full shadow-[0_0_15px_rgba(204,0,0,0.4)]"></div>
                   <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1973</span>
-                  <span className="text-lg leading-snug">Global networking achieved. The term "internet" is coined.</span>
+                  <span className="text-lg leading-snug">Global networking achieved. The term &quot;internet&quot; is coined.</span>
                 </li>
                 
                 <li className="flex flex-col relative z-10 pl-6 group">
@@ -254,7 +256,7 @@ const Era1_Arpanet = () => {
                 <li className="flex flex-col relative z-10 pl-6 group">
                   <div className="timeline-node absolute -left-0.5 top-1.5 w-4 h-4 bg-ink border-[3px] border-paper rounded-full"></div>
                   <span className="font-sans font-black text-ink text-2xl tracking-widest mb-1 group-hover:text-accent transition-colors">1989</span>
-                  <span className="text-lg leading-snug">Tim Berners-Lee circulates the "informational management proposal" at CERN.</span>
+                  <span className="text-lg leading-snug">Tim Berners-Lee circulates the &quot;informational management proposal&quot; at CERN.</span>
                 </li>
               </ul>
             </div>

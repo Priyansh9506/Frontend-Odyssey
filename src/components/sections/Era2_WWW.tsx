@@ -80,7 +80,7 @@ export default function Era2_WWW() {
 
         {/* Newspaper Header */}
         <header className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center border-b-[4px] md:border-b-[8px] border-ink pb-4 md:pb-6 mb-10 md:mb-16 relative z-10 era2-reveal">
-          <h1 className="font-serif text-[12vw] md:text-[9vw] leading-[0.85] uppercase font-bold tracking-tighter text-[#DC2626] text-center flex flex-col w-full px-2 md:px-4">
+          <h1 className="font-serif text-[12vw] md:text-[9vw] leading-[0.85] uppercase font-bold tracking-tighter text-center flex flex-col w-full px-2 md:px-4">
             <div className="w-full text-center pb-2 md:pb-4 mb-2 md:mb-4">
               The World Wide Web
             </div>
@@ -115,7 +115,7 @@ export default function Era2_WWW() {
               <div className="w-full md:w-1/2 flex-shrink-0">
                 <Tilt3D intensity={4}>
                   <div className="w-full border-[2px] md:border-[4px] border-ink overflow-hidden bg-zinc-200">
-                    {/* Tim Berners Lee / First Server Image */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src="/images/NeXT-computer.png" 
                       alt="The NeXT Computer used as the world's first web server" 
@@ -123,11 +123,12 @@ export default function Era2_WWW() {
                     />
                   </div>
                 </Tilt3D>
-                <p className="font-sans text-xs font-bold uppercase tracking-wider text-center mt-2">The NeXT Computer used as the world's first web server</p>
+                <p className="font-sans text-xs font-bold uppercase tracking-wider text-center mt-2">The NeXT Computer used as the world&apos;s first web server</p>
                 
                 {/* Tim Berners-Lee Image */}
                 <Tilt3D intensity={4}>
                   <div className="w-full border-[2px] md:border-[4px] border-ink overflow-hidden bg-zinc-200 mt-6 md:mt-8">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src="/images/time-burners-lee.png" 
                       alt="Tim Berners-Lee, inventor of the World Wide Web" 
@@ -143,15 +144,15 @@ export default function Era2_WWW() {
                   While ARPANET laid the physical cables, the digital landscape remained fractured and difficult to navigate. In 1989, British computer scientist <strong>Tim Berners-Lee</strong> drafted a proposal at CERN to manage general information alongside a tangled web of linked documents.
                 </p>
                 <p className="text-justify mt-4">
-                  By 1990, he had coded the first web browser and server. When the WWW software was put into the public domain in 1993, the internet was suddenly democratized. Anyone could create a "page," linking humanity's collective knowledge using HTTP and HTML.
+                  By 1990, he had coded the first web browser and server. When the WWW software was put into the public domain in 1993, the internet was suddenly democratized. Anyone could create a &quot;page,&quot; linking humanity&apos;s collective knowledge using HTTP and HTML.
                 </p>
               </div>
             </div>
             
             <div className="w-full h-[2px] bg-ink/20 my-4 era2-reveal"></div>
             
-            <h3 className="text-2xl font-bold uppercase era2-reveal text-center mt-4">"Vague but exciting..."</h3>
-            <p className="font-sans text-sm text-center uppercase tracking-widest text-zinc-500 era2-reveal">- Mike Sendall (Berners-Lee's boss on the original proposal)</p>
+            <h3 className="text-2xl font-bold uppercase era2-reveal text-center mt-4">&quot;Vague but exciting...&quot;</h3>
+            <p className="font-sans text-sm text-center uppercase tracking-widest text-zinc-500 era2-reveal">- Mike Sendall (Berners-Lee&apos;s boss on the original proposal)</p>
           </div>
 
           {/* Right Column (.com Trend) */}
@@ -159,7 +160,7 @@ export default function Era2_WWW() {
             <div className="p-6 md:p-8 bg-zinc-200 border-[2px] md:border-[4px] border-ink era2-reveal">
               <h3 className="text-2xl md:text-3xl font-black uppercase mb-4 leading-none inline-block bg-accent text-paper px-2 py-1">The .com Gold Rush</h3>
               <p className="font-newspaper text-lg text-justify">
-                With the web open to the public, businesses flooded the network. The domain name ".com" (commercial) became the most valuable real estate of the decade.
+                With the web open to the public, businesses flooded the network. The domain name &quot;.com&quot; (commercial) became the most valuable real estate of the decade.
               </p>
               <ul className="mt-6 flex flex-col gap-4 font-sans text-sm md:text-base font-bold uppercase tracking-wider">
                 <li className="flex items-center gap-3">

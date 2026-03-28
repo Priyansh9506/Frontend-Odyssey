@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopyReveal from "@/components/CopyReveal";
 import Tilt3D from "@/components/Tilt3D";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,9 +16,9 @@ export default function Era4_Web2() {
   const transitionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // Reveal animations for newspaper elements
-      gsap.utils.toArray(".era4-reveal").forEach((elem: any) => {
+      gsap.utils.toArray<HTMLElement>(".era4-reveal").forEach((elem) => {
         gsap.fromTo(
           elem,
           { y: 60, opacity: 0, rotateX: 10 },
@@ -112,6 +113,7 @@ export default function Era4_Web2() {
 
           <Tilt3D intensity={8}>
             <div className="w-full relative border-[2px] border-ink overflow-hidden group era4-reveal mb-8">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src="/images/mark-.zukerberg-old-days.png" 
                 alt="Young Mark Zuckerberg" 
@@ -128,10 +130,10 @@ export default function Era4_Web2() {
               In a crammed dorm room in Kirkland House at Harvard University, an empire was quietly compiling. It wasn’t a search engine, nor was it a marketplace to sell old electronics. It was a digital directory of faces.
             </p>
             <p className="mt-4 md:mt-0">
-              They called it "ThefaceBook". What began as an exclusive network for ivy-league students fundamentally rewired how humanity interacts. For the first time, users weren't anonymous avatars behind screen names; they were forced to use their real identities. 
+              They called it &quot;ThefaceBook&quot;. What began as an exclusive network for ivy-league students fundamentally rewired how humanity interacts. For the first time, users weren&apos;t anonymous avatars behind screen names; they were forced to use their real identities. 
             </p>
             <p className="mt-4 font-bold border-l-4 border-[#1877F2] pl-4 italic">
-              "Move fast and break things. Unless you are breaking stuff, you are not moving fast enough." — M. Zuckerberg
+              &quot;Move fast and break things. Unless you are breaking stuff, you are not moving fast enough.&quot; — M. Zuckerberg
             </p>
             <p className="mt-4">
               He became the undisputed protagonist of Web 2.0. As others fell away, Zuckerberg evolved from a hacker in a hoodie to the architect of a platform that would soon dwarf the global population of most continents, setting the stage for total digital consolidation.
@@ -187,6 +189,7 @@ export default function Era4_Web2() {
             
             <Tilt3D intensity={12}>
               <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="/images/youtube-founders.png" 
                   alt="YouTube Founders" 
@@ -213,6 +216,7 @@ export default function Era4_Web2() {
             
             <Tilt3D intensity={12}>
               <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="/images/jack-dorsey.png" 
                   alt="Jack Dorsey" 
@@ -225,10 +229,10 @@ export default function Era4_Web2() {
             </Tilt3D>
 
             <p className="font-newspaper text-lg text-justify mt-2">
-              Born from a podcasting startup called Odeo, Jack Dorsey's "twttr" forced the world into brevity. SMS-based status updates became the global town square, giving real-time voice to revolutions, celebrities, and presidents alike, restricted simply to 140 bytes of data.
+              Born from a podcasting startup called Odeo, Jack Dorsey&apos;s &quot;twttr&quot; forced the world into brevity. SMS-based status updates became the global town square, giving real-time voice to revolutions, celebrities, and presidents alike, restricted simply to 140 bytes of data.
             </p>
             <div className="bg-zinc-200 border-[2px] border-ink p-4 font-sans text-sm italic font-medium opacity-80 era4-reveal">
-              "just setting up my twttr"<br/>— March 21, 2006
+              &quot;just setting up my twttr&quot;<br/>— March 21, 2006
             </div>
           </div>
 

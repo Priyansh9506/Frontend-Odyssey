@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from "gsap";
 
 const LoadingNewspaper = () => {

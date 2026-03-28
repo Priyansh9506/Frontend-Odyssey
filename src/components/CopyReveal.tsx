@@ -133,12 +133,7 @@ export default function CopyReveal({
     }
   );
 
-  // If there's only one child, we can clone it to attach the ref directly
-  if (React.Children.count(children) === 1 && React.isValidElement(children)) {
-    return React.cloneElement(children, { ref: containerRef } as React.HTMLAttributes<HTMLElement>);
-  }
-
-  // Otherwise, wrap it in a div
+  // Always wrap in a div to avoid React 19 ref access errors during render
   return (
     <div ref={containerRef} data-copy-wrapper="true" className="w-full">
       {children}

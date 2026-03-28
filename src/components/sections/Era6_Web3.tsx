@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CopyReveal from "@/components/CopyReveal";
 import Tilt3D from "@/components/Tilt3D";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,8 +15,8 @@ export default function Era6_Web3() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.utils.toArray(".era6-reveal").forEach((elem: any) => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".era6-reveal").forEach((elem) => {
         gsap.fromTo(
           elem,
           { y: 60, opacity: 0, rotateX: 10 },
@@ -111,6 +112,7 @@ export default function Era6_Web3() {
               <div className="float-left mr-6 mb-4 w-[45%] md:w-[40%]">
                 <Tilt3D intensity={8}>
                   <a href="https://en.wikipedia.org/wiki/Satoshi_Nakamoto" target="_blank" rel="noopener noreferrer" className="block relative border-[2px] border-ink overflow-hidden group cursor-pointer">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/satoshi-nakamoto.png"
                       alt="Satoshi Nakamoto Statue"
@@ -139,8 +141,9 @@ export default function Era6_Web3() {
               <div className="w-full">
                 <Tilt3D intensity={5}>
                   <div className="w-full border-[2px] border-ink overflow-hidden group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/bicoin-ethereum.png"
+                      src="/images/bitcoin-ethereum.png"
                       alt="Bitcoin and Ethereum"
                       className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                     />
@@ -169,6 +172,7 @@ export default function Era6_Web3() {
               <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="w-full flex flex-col">
                   <a href="https://opensea.io/item/ethereum/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/8585" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink overflow-hidden group cursor-pointer">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/most-expensive-bored-ape.png"
                       alt="Bored Ape #8585"
@@ -189,6 +193,7 @@ export default function Era6_Web3() {
 
                 <div className="w-full flex flex-col">
                   <a href="https://opensea.io/item/ethereum/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/5822" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink overflow-hidden group cursor-pointer">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/most-expensive-cryptopunk.png"
                       alt="CryptoPunk #5822"
@@ -222,6 +227,7 @@ export default function Era6_Web3() {
               <div className="w-full flex flex-col gap-4">
                 <Tilt3D intensity={12}>
                   <a href="https://boredapeyachtclub.com/" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group cursor-pointer">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/bored-ape-fun.png"
                       alt="Bored Ape Yacht Club"
@@ -236,6 +242,7 @@ export default function Era6_Web3() {
                 <div className="w-full grid grid-cols-2 gap-3">
                   <Tilt3D intensity={12}>
                     <a href="https://opensea.io/" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group cursor-pointer">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/images/opensea.png"
                         alt="OpenSea NFT Marketplace"
@@ -249,6 +256,7 @@ export default function Era6_Web3() {
 
                   <Tilt3D intensity={12}>
                     <a href="https://fr.wikipedia.org/wiki/Rarible" target="_blank" rel="noopener noreferrer" className="block w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group cursor-pointer">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/images/rariable.png"
                         alt="Rarible NFT Marketplace"

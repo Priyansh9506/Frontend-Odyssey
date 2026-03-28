@@ -4,10 +4,44 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Tilt3D from "@/components/Tilt3D";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+// Ticker data with realistic historical crash figures
+const tickers = [
+  { name: "NASDAQ", dir: "down", val: "78%" },
+  { name: "PETS.COM", dir: "down", val: "99%" },
+  { name: "AMAZON", dir: "up", val: "94%" },
+  { name: "WEBVAN", dir: "down", val: "94%" },
+  { name: "ETOYS", dir: "down", val: "99%" },
+  { name: "EBAY", dir: "up", val: "SURVIVES" },
+  { name: "INFOSEEK", dir: "down", val: "88%" },
+  { name: "THEGLOBE.COM", dir: "down", val: "97%" },
+  { name: "WORLDCOM", dir: "down", val: "99%" },
+  { name: "GEOCITIES", dir: "down", val: "85%" },
+];
+
+const TickerRow = () => (
+  <>
+    {tickers.map((t, i) => (
+      <span key={i} className="flex items-center shrink-0">
+        <span className="px-6 md:px-10">
+          {t.name}{" "}
+          <span className={t.dir === "down" ? "text-accent" : "text-green-600"}>
+            {t.dir === "down" ? "▼" : "▲"}
+          </span>{" "}
+          <span className="font-sans font-light">
+            {t.val}
+          </span>
+        </span>
+        <span className="text-ink/15 text-[4vw] md:text-[2.5vw] shrink-0">✦</span>
+      </span>
+    ))}
+  </>
+);
 
 export default function Era3_BubbleBurst() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -53,39 +87,7 @@ export default function Era3_BubbleBurst() {
     return () => ctx.revert();
   }, []);
 
-  // Ticker data with realistic historical crash figures
-  const tickers = [
-    { name: "NASDAQ", dir: "down", val: "78%" },
-    { name: "PETS.COM", dir: "down", val: "99%" },
-    { name: "AMAZON", dir: "up", val: "94%" },
-    { name: "WEBVAN", dir: "down", val: "94%" },
-    { name: "ETOYS", dir: "down", val: "99%" },
-    { name: "EBAY", dir: "up", val: "SURVIVES" },
-    { name: "INFOSEEK", dir: "down", val: "88%" },
-    { name: "THEGLOBE.COM", dir: "down", val: "97%" },
-    { name: "WORLDCOM", dir: "down", val: "99%" },
-    { name: "GEOCITIES", dir: "down", val: "85%" },
-  ];
-
-  const TickerRow = () => (
-    <>
-      {tickers.map((t, i) => (
-        <span key={i} className="flex items-center shrink-0">
-          <span className="px-6 md:px-10">
-            {t.name}{" "}
-            <span className={t.dir === "down" ? "text-accent" : "text-green-600"}>
-              {t.dir === "down" ? "▼" : "▲"}
-            </span>{" "}
-            <span className="font-sans font-light">
-              {t.val}
-            </span>
-          </span>
-          <span className="text-ink/15 text-[4vw] md:text-[2.5vw] shrink-0">✦</span>
-        </span>
-      ))}
-    </>
-  );
-
+  
   return (
     <section 
       ref={sectionRef} 
@@ -127,23 +129,24 @@ export default function Era3_BubbleBurst() {
         <div className="xl:col-span-5 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 xl:border-r-[4px] xl:border-ink/20 pr-0 xl:pr-10">
           <Tilt3D intensity={5}>
             <div className="w-full overflow-hidden border-[4px] border-ink era3-reveal bg-zinc-200">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
-                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop" 
-                alt="Stock market crash symbolism" 
-                className="w-full h-auto object-cover grayscale contrast-125" 
+                src="/images/stock-crash.png" 
+                alt="Stock market crash symbolism"
+                className="w-full h-auto object-cover" 
               />
             </div>
           </Tilt3D>
           
           <h2 className="text-4xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter border-b-[2px] border-ink pb-4 mt-4 era3-reveal">
-            "Get Big Fast"<br/><span className="text-accent text-3xl md:text-4xl">Go Broke Faster.</span>
+            &quot;Get Big Fast&quot;<br/><span className="text-accent text-3xl md:text-4xl">Go Broke Faster.</span>
           </h2>
           
           <p className="first-letter:text-[5rem] first-letter:font-black first-letter:float-left first-letter:mr-4 first-letter:mt-1 first-letter:leading-[0.75] text-justify era3-reveal">
             Between 1995 and its peak in March 2000, the NASDAQ composite stock market index surged 400%, fueled by unprecedented speculation in web-based companies. 
           </p>
           <p className="text-justify era3-reveal">
-            Investors poured millions into any startup ending in ".com", ignoring traditional metrics like profit, P/E ratios, or even viable business models. Throwing parties was standard; turning a profit was an afterthought.
+            Investors poured millions into any startup ending in &quot;.com&quot;, ignoring traditional metrics like profit, P/E ratios, or even viable business models. Throwing parties was standard; turning a profit was an afterthought.
           </p>
           <p className="text-justify font-bold mt-2 era3-reveal">
             When capital dried up in late 2000, the implosion was total. Companies like Pets.com, Webvan, and eToys burned through hundreds of millions before abruptly shutting off their servers forever.
@@ -158,15 +161,16 @@ export default function Era3_BubbleBurst() {
             {/* Amazon Section */}
             <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#1a1a1a] era3-reveal group">
               <a href="https://en.wikipedia.org/wiki/Jeff_Bezos" target="_blank" rel="noopener noreferrer" className="w-full md:w-1/3 border-[2px] border-ink overflow-hidden block group/img">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="/images/jeff-bezos-amazon.png" 
                   alt="Jeff Bezos in early Amazon days" 
-                  className="w-full h-full object-cover min-h-[180px] grayscale contrast-125 group-hover/img:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover min-h-[180px]"
                 />
               </a>
               <div className="w-full md:w-2/3 font-newspaper text-lg flex flex-col justify-center">
                 <p className="text-justify">
-                  Founded by Jeff Bezos as an online bookstore, Amazon famously told investors they wouldn't see profits for years. Their stock plummeted from $107 to $6 during the crash. 
+                  Founded by Jeff Bezos as an online bookstore, Amazon famously told investors they wouldn&apos;t see profits for years. Their stock plummeted from $107 to $6 during the crash. 
                 </p>
                 <p className="mt-2 text-justify">
                   By strictly prioritizing market share and infrastructure over short-term returns, they survived the purge to become the largest online retailer in the world.
@@ -177,15 +181,16 @@ export default function Era3_BubbleBurst() {
             {/* eBay Section */}
             <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#cc0000] era3-reveal group">
               <a href="https://en.wikipedia.org/wiki/EBay" target="_blank" rel="noopener noreferrer" className="w-full md:w-1/3 border-[2px] border-ink overflow-hidden block group/img">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="/images/ebay-founders.png" 
                   alt="eBay founders in the early days" 
-                  className="w-full h-full object-cover min-h-[180px] grayscale contrast-125 group-hover/img:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover min-h-[180px]"
                 />
               </a>
               <div className="w-full md:w-2/3 font-newspaper text-lg flex flex-col justify-center">
                 <p className="text-justify">
-                  Starting simply as "AuctionWeb" by Pierre Omidyar, eBay was unique: it was genuinely profitable from day one. Instead of holding massive inventory, they simply connected buyers with sellers for a tiny fee.
+                  Starting simply as &quot;AuctionWeb&quot; by Pierre Omidyar, eBay was unique: it was genuinely profitable from day one. Instead of holding massive inventory, they simply connected buyers with sellers for a tiny fee.
                 </p>
                 <p className="mt-2 text-justify">
                   While others burned cash on Super Bowl ads, eBay quietly built a monopoly on digital auctions, weathering the storm with incredibly high margins.
