@@ -34,9 +34,11 @@ export default function CopyReveal({
 
   useGSAP(
     () => {
-      // Small timeout to ensure font loading before SplitText measures
-      const timeout = setTimeout(() => {
-        if (!containerRef.current) return;
+      let isCancelled = false;
+
+      // Ensure fonts are loaded before SplitText measures
+      document.fonts.ready.then(() => {
+        if (isCancelled || !containerRef.current) return;
 
         splitRefs.current = [];
         lines.current = [];
@@ -112,10 +114,10 @@ export default function CopyReveal({
             createBlockRevealAnimation(block, lines.current[index], index);
           });
         }
-      }, 100);
+      });
 
       return () => {
-        clearTimeout(timeout);
+        isCancelled = true;
         splitRefs.current.forEach((split) => split?.revert());
 
         const wrappers = containerRef.current?.querySelectorAll(".block-line-wrapper");

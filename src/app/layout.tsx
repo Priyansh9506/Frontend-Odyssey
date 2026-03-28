@@ -15,6 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://history-of-web.vercel.app"),
   title: "The Hypertext Herald | History of Web",
   description: "An immersive, newspaper-style journey through the evolution of the World Wide Web. From ARPANET to Web3, explore the timelines, crashes, and revolutions of the digital age.",
   keywords: ["history of web", "hypertext herald", "arpanet", "world wide web", "web history", "internet timeline", "dot com bubble", "web3", "social media history"],
@@ -23,15 +24,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Hypertext Herald | History of Web",
     description: "An immersive, newspaper-style journey through the evolution of the World Wide Web. Experience the history of the internet.",
-    url: "https://thehypertextherald.vercel.app",
+    url: "https://history-of-web.vercel.app",
     siteName: "The Hypertext Herald",
     images: [
       {
-        url: "/icon.png",
+        url: "https://history-of-web.vercel.app/icon.png",
         width: 1200,
         height: 630,
         alt: "The Hypertext Herald Logo",
+        type: "image/png",
       },
+      {
+        url: "https://history-of-web.vercel.app/icon.png",
+        width: 400,
+        height: 400,
+        alt: "The Hypertext Herald - Square",
+        type: "image/png",
+      }
     ],
     locale: "en_US",
     type: "website",
@@ -40,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Hypertext Herald | History of Web",
     description: "An immersive, newspaper-style journey through the evolution of the World Wide Web. Experience the history of the internet.",
-    images: ["/icon.png"],
+    images: ["https://history-of-web.vercel.app/icon.png"],
   },
   icons: {
     icon: "/icon.png",

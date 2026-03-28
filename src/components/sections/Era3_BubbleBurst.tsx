@@ -127,7 +127,7 @@ export default function Era3_BubbleBurst() {
         
         {/* Left Column (The Crash) */}
         <div className="xl:col-span-5 flex flex-col gap-6 font-newspaper text-lg md:text-xl leading-relaxed border-r-0 xl:border-r-[4px] xl:border-ink/20 pr-0 xl:pr-10">
-          <Tilt3D intensity={5}>
+          <Tilt3D intensity={5} className="block w-full">
             <div className="w-full overflow-hidden border-[4px] border-ink era3-reveal bg-zinc-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
@@ -159,7 +159,7 @@ export default function Era3_BubbleBurst() {
           
           <div className="flex flex-col gap-8">
             {/* Amazon Section */}
-            <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#1a1a1a] era3-reveal group">
+            <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#1a1a1a] mr-2 mb-2 era3-reveal group">
               <a href="https://en.wikipedia.org/wiki/Jeff_Bezos" target="_blank" rel="noopener noreferrer" className="w-full md:w-1/3 border-[2px] border-ink overflow-hidden block group/img">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
@@ -179,7 +179,7 @@ export default function Era3_BubbleBurst() {
             </div>
 
             {/* eBay Section */}
-            <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#cc0000] era3-reveal group">
+            <div className="flex flex-col md:flex-row gap-6 p-6 border-[2px] border-ink bg-white shadow-[8px_8px_0_0_#cc0000] mr-2 mb-2 era3-reveal group">
               <a href="https://en.wikipedia.org/wiki/EBay" target="_blank" rel="noopener noreferrer" className="w-full md:w-1/3 border-[2px] border-ink overflow-hidden block group/img">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 

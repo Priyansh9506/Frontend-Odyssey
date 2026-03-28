@@ -147,7 +147,7 @@ export default function Era5_SocialMedia() {
               The Youngest<br />Billionaire
             </h2>
 
-            <Tilt3D intensity={8}>
+            <Tilt3D intensity={8} className="block w-full">
               <div className="w-full relative border-[2px] border-ink overflow-hidden group era5-reveal mb-8">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -243,11 +243,11 @@ export default function Era5_SocialMedia() {
             <h3 className="font-serif text-3xl font-black uppercase leading-none border-b-[2px] border-ink pb-2">
               The Instagram<br />Deal
             </h3>
-            <Tilt3D intensity={12}>
+            <Tilt3D intensity={12} className="block w-full">
               <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/instagram-acqustion.png"
+                  src="/images/instagram-logo.png"
                   alt="Instagram Acquisition"
                   className="w-full aspect-square object-cover contrast-125 object-left group-hover:scale-105 transition-all duration-700"
                 />
@@ -266,11 +266,11 @@ export default function Era5_SocialMedia() {
             <h3 className="font-serif text-3xl font-black uppercase leading-none border-b-[2px] border-ink pb-2">
               The Snapchat<br />Rejection
             </h3>
-            <Tilt3D intensity={12}>
+            <Tilt3D intensity={12} className="block w-full">
               <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/snapchat.png"
+                  src="/images/snapchat-logo.png"
                   alt="Snapchat"
                   className="w-full aspect-square object-cover contrast-125 object-top group-hover:scale-105 transition-all duration-700"
                 />
@@ -289,13 +289,13 @@ export default function Era5_SocialMedia() {
             <h3 className="font-serif text-3xl font-black uppercase leading-none border-b-[2px] border-ink pb-2">
               The WhatsApp<br />Mega-Deal
             </h3>
-            <Tilt3D intensity={12}>
+            <Tilt3D intensity={12} className="block w-full">
               <div className="w-full relative border-[2px] border-ink p-1 bg-white overflow-hidden group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/whatsapp-acquistion.png"
+                  src="/images/whatsapp-logo.png"
                   alt="WhatsApp Acquisition"
-                  className="w-full aspect-square object-cover contrast-125 object-left group-hover:scale-105 transition-all duration-700"
+                  className="w-full aspect-square object-contain p-8 md:p-12 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute top-2 right-2 bg-[#25D366] text-white text-[10px] font-sans font-bold px-2 py-1 flex items-center gap-2">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
@@ -310,30 +310,32 @@ export default function Era5_SocialMedia() {
         </div>
 
         {/* ── THE DOMINANCE ── */}
-        <div className="w-full max-w-7xl mx-auto mt-24 px-4 era5-reveal">
+        <div className="w-full mt-24 era5-reveal">
 
           {/* Full-width Dominance Image */}
-          <Tilt3D intensity={6}>
-            <div className="w-full relative border-[4px] border-ink overflow-hidden group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/Mark-Z-dominence.png"
-                alt="Mark Zuckerberg's Digital Dominance"
-                className="w-full min-h-[300px] md:min-h-[500px] object-cover object-top contrast-110 group-hover:scale-105 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-                <h3 className="font-serif text-3xl md:text-5xl font-black uppercase text-paper leading-[0.9] tracking-tight mb-2">
-                  Total Digital<br />Consolidation
-                </h3>
-                <p className="font-newspaper text-paper/80 text-lg md:text-xl max-w-2xl">
-                  By 2016, Facebook controlled <span className="text-accent font-bold">Facebook</span>, <span className="text-accent font-bold">Instagram</span>, <span className="text-accent font-bold">WhatsApp</span>, and <span className="text-accent font-bold">Messenger</span>—four of the world&apos;s five most-used social apps. One man. One company. Billions of users.
-                </p>
+          <div className="w-full max-w-7xl mx-auto px-4">
+            <Tilt3D intensity={6} className="block w-full mx-auto">
+              <div className="w-full relative border-[4px] border-ink overflow-hidden group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/Mark-Z-dominence.png"
+                  alt="Mark Zuckerberg's Digital Dominance"
+                  className="w-full min-h-[300px] md:min-h-[500px] object-cover object-top contrast-110 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+                  <h3 className="font-serif text-3xl md:text-5xl font-black uppercase text-paper leading-[0.9] tracking-tight mb-2">
+                    Total Digital<br />Consolidation
+                  </h3>
+                  <p className="font-newspaper text-paper/80 text-lg md:text-xl max-w-2xl">
+                    By 2016, Facebook controlled <span className="text-accent font-bold">Facebook</span>, <span className="text-accent font-bold">Instagram</span>, <span className="text-accent font-bold">WhatsApp</span>, and <span className="text-accent font-bold">Messenger</span>—four of the world&apos;s five most-used social apps. One man. One company. Billions of users.
+                  </p>
+                </div>
               </div>
-            </div>
-          </Tilt3D>
+            </Tilt3D>
+          </div>
           {/* Editorial Text Below Image */}
-          <div className="mt-10 era5-reveal">
+          <div className="w-full max-w-7xl mx-auto px-4 mt-10 era5-reveal">
             <h3 className="text-4xl md:text-5xl font-black uppercase leading-[0.85] tracking-tighter border-b-4 border-ink pb-4 mb-8 text-center">
               Is This Dominance Dangerous?
             </h3>

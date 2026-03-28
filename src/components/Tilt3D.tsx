@@ -12,10 +12,12 @@ const Tilt3D = ({
   children,
   intensity = 12,
   glare = true,
+  className = "inline-block",
 }: {
   children: React.ReactElement;
   intensity?: number;
   glare?: boolean;
+  className?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const glareRef = useRef<HTMLDivElement>(null);
@@ -89,7 +91,7 @@ const Tilt3D = ({
   return (
     <div
       ref={ref}
-      className="relative inline-block"
+      className={`relative ${className}`}
       style={{ transformStyle: "preserve-3d" }}
       data-cursor="hover"
     >

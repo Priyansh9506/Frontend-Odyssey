@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TheEditorsDesk = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const isAnimatingRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const flipContainerRef = useRef<HTMLDivElement>(null);
   const frontRef = useRef<HTMLDivElement>(null);
@@ -36,33 +37,42 @@ const TheEditorsDesk = () => {
 
   const toggleFlip = () => {
     if (!flipContainerRef.current || !frontRef.current || !backRef.current) return;
+    if (isAnimatingRef.current) return; // prevent double-clicks
+    isAnimatingRef.current = true;
 
     const nextFlippedState = !isFlipped;
-    setIsFlipped(nextFlippedState);
 
-    // Measure the back face height by temporarily making it flow
+    // Measure BOTH heights BEFORE changing state, using temporary position:relative
+    // so we always get the natural content height regardless of current DOM state.
+    const frontOrigPos = frontRef.current.style.position;
+    frontRef.current.style.position = "relative";
+    const measuredFrontHeight = frontRef.current.offsetHeight || 600;
+    frontRef.current.style.position = frontOrigPos;
+
+    const backOrigPos = backRef.current.style.position;
+    const backOrigVis = backRef.current.style.visibility;
     backRef.current.style.position = "relative";
     backRef.current.style.visibility = "hidden";
-    const backHeight = backRef.current.offsetHeight;
-    backRef.current.style.position = "absolute";
-    backRef.current.style.visibility = "visible";
+    const measuredBackHeight = backRef.current.offsetHeight;
+    backRef.current.style.position = backOrigPos;
+    backRef.current.style.visibility = backOrigVis;
 
-    const frontHeight = frontRef.current.offsetHeight || 600;
-    const targetHeight = nextFlippedState ? backHeight : frontHeight;
+    const targetHeight = nextFlippedState ? measuredBackHeight : measuredFrontHeight;
+
+    // Now update React state
+    setIsFlipped(nextFlippedState);
 
     const tl = gsap.timeline({
       onComplete: () => {
         if (flipContainerRef.current) {
-          // Set to auto so the container grows/shrinks with content
-          flipContainerRef.current.style.height = nextFlippedState ? 'auto' : frontHeight + 'px';
+          flipContainerRef.current.style.height = nextFlippedState ? 'auto' : measuredFrontHeight + 'px';
         }
-        // Refresh scroll engines so the page knows about the new height
         ScrollTrigger.refresh();
         if (lenis) {
           lenis.resize();
-          // Double-tap: Lenis sometimes needs a frame to settle
           requestAnimationFrame(() => lenis.resize());
         }
+        isAnimatingRef.current = false;
       }
     });
 

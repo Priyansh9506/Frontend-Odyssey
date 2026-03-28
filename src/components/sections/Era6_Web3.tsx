@@ -155,7 +155,7 @@ export default function Era6_Web3() {
                 <div>
                   <h4 className="font-serif text-2xl font-black uppercase leading-[1.1] mb-4 text-center border-b-[2px] border-ink pb-3">Smart Contracts & DApps</h4>
                   <p>
-                    In 2015, 21-year-old <span className="font-bold">Vitalik Buterin</span> launched Ethereum — a programmable blockchain that could execute &quot;smart contracts.&quot; Suddenly, developers could build decentralized applications without anyone&apos;s permission. DeFi (Decentralized Finance) was born: lending, borrowing, and trading without a single bank involved.
+                    In 2015, 21-year-old <span className="font-bold">Vitalik Buterin</span>launched Ethereum — a programmable blockchain that could execute &quot;smart contracts.&quot; Suddenly, developers could build decentralized applications without anyone&apos;s permission. DeFi (Decentralized Finance) was born: lending, borrowing, and trading without a single bank involved.
                   </p>
                 </div>
                 <p className="font-sans text-[10px] uppercase tracking-widest text-ink/70 font-bold mt-4 text-center">
@@ -271,7 +271,7 @@ export default function Era6_Web3() {
               </div>
 
               <p className="font-newspaper text-lg text-justify mt-2">
-                In March 2021, digital artist <span className="font-bold text-[#F7931A]">Beeple</span> sold an NFT titled &quot;Everydays: The First 5000 Days&quot; for a staggering <span className="font-bold">$69.3 million</span> at Christie&apos;s auction house. The Bored Ape Yacht Club hit a floor price of $420,000. Trading volume on platforms like <span className="font-bold text-[#2081E2]">OpenSea</span> and <span className="font-bold text-[#FEDA03]">Rarible</span> peaked at $17 billion in January 2022. Digital art wasn&apos;t just pixels anymore — it was gold.
+                In March 2021, digital artist <span className="font-bold text-[#F7931A]">Beeple</span> sold an NFT titled &quot;Everydays: The First 5000 Days&quot; for a staggering <span className="font-bold">$69.3 million</span> at Christie&apos;s auction house. The Bored Ape Yacht Club hit a floor price of $420,000. Trading volume on platforms like <span className="font-bold text-[#2081E2]">OpenSea</span> and <span className="font-bold text-[#FEDA03]">Rarible </span>peaked at $17 billion in January 2022. Digital art wasn&apos;t just pixels anymore — it was gold.
               </p>
             </div>
 
