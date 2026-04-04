@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { Analytics } from "@vercel/analytics/react";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -95,6 +96,7 @@ const RootLayout = ({
       </head>
       <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent selection:text-white" suppressHydrationWarning>
         <SmoothScrolling>{children}</SmoothScrolling>
+        <Analytics />
       </body>
     </html>
   );
